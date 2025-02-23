@@ -1,9 +1,12 @@
 package com.coursework;
 
-import com.coursework.console.ConsoleWordle;
+import com.coursework.core.Settings;
+import com.coursework.core.Wordle;
+import com.coursework.core.WordleCreation;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        ConsoleWordle.play();
+        Wordle wordle = new WordleCreation(new Settings()).create();
+        wordle.game();
     }
 }

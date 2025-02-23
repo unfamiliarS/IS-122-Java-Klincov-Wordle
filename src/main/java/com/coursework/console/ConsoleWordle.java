@@ -8,22 +8,20 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.coursework.core.Dictionary;
+import com.coursework.core.Settings;
 import com.coursework.core.Wordle;
 import com.coursework.core.enums.Languages;
 import com.coursework.ui.cli.ConsoleUI;
 
-public class ConsoleWordle extends Wordle<String> {
+public class ConsoleWordle extends Wordle {
 
-    public ConsoleWordle() {
-        super();
-        super.ui = new ConsoleUI(settings);
+    ConsoleUI ui;
+
+    public ConsoleWordle(Settings settings) {
+        super(settings);
+        ui = new ConsoleUI(settings);
     }
 
-    public static void play() {
-        new ConsoleWordle().game();
-    }
-
-    @Override
     public void game() {
 
         try (var scanner = new Scanner(new InputStreamReader(System.in));
@@ -63,7 +61,7 @@ public class ConsoleWordle extends Wordle<String> {
         }
     }
 
-    private void gameplay(Scanner scanner, PrintWriter pw) throws IOException {
+    protected void gameplay(Scanner scanner, PrintWriter pw) throws IOException {
 
         int attempts = settings.getAttempts();
         String[] userWord = new String[attempts];
@@ -162,35 +160,7 @@ public class ConsoleWordle extends Wordle<String> {
         return word.matches(regex);
     }
 
-    private String comparingWords(String userWord, String answerWord) {
-        int wordLen = userWord.length();
-        var result = new StringBuilder();
-
-        String green = "\u001B[32m";
-        String yellow = "\u001B[33m";
-        String reset = "\u001B[0m";
-    
-        outer: for (int i = 0; i < wordLen; i++) {
-            if (userWord.charAt(i) == answerWord.charAt(i)) {
-                result.append(green).append(userWord.charAt(i)).append(reset);
-                continue;
-            }
-
-            for (int j = 0; j < wordLen; j++) {
-                if (answerWord.charAt(j) == userWord.charAt(i)) {
-                    result.append(yellow).append(userWord.charAt(i)).append(reset);
-                    continue outer;
-                }
-            }
-
-            result.append(userWord.charAt(i));
-        }
-    
-        return result.toString();
-    }
-
-    private String getGameplayMesg(String keyword) {
-        String[] array = { keyword };
-        return ui.gameplay(array);
+    protected String getGameplayMesg(String keyword) {
+        return ui.gameplay(new String[] { keyword });
     }
 }

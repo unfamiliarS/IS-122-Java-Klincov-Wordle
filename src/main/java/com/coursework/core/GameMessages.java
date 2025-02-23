@@ -1,17 +1,15 @@
-package com.coursework.ui.cli;
+package com.coursework.core;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.coursework.core.LanguageChangeListener;
-import com.coursework.core.Settings;
 import com.coursework.core.enums.Languages;
 
-public class ConsoleMenus implements LanguageChangeListener {
+public class GameMessages implements LanguageChangeListener {
 
     private Map<String, String> messages;
 
-    public ConsoleMenus(Settings settings) {
+    public GameMessages(Settings settings) {
         this.messages = loadMessages(settings.getLanguage());
         settings.setLanguageChangeListener(this);
     }
@@ -22,7 +20,7 @@ public class ConsoleMenus implements LanguageChangeListener {
 
     public Map<String, String> loadMessages(Languages language) {
         Map<String, String> messages = new HashMap<>();
-
+        
         switch (language) {
             case ENG:
                 messages.put("menu", "\n=============================\n__________ Wordle ___________\n\n\t1. Play\n\t2. Languages\n\t3. Exit\n\n=============================\nEnter: ");

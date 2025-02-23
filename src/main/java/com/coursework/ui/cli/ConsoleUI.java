@@ -1,37 +1,40 @@
 package com.coursework.ui.cli;
 
+import com.coursework.core.GameMessages;
 import com.coursework.core.Settings;
 import com.coursework.ui.UserInterface;
+import com.coursework.ui.UserInterfaceGoodbye;
+import com.coursework.ui.UserInterfaceWL;
 
-public class ConsoleUI implements UserInterface<String> {
+public class ConsoleUI implements UserInterface<String>, UserInterfaceWL<String>, UserInterfaceGoodbye<String> {
 
-    private ConsoleMenus cm;
+    private GameMessages gm;
 
     public ConsoleUI(Settings settings) {
-        cm = new ConsoleMenus(settings);
+        gm = new GameMessages(settings);
     }
 
     public String mainMenu() {
-        return cm.getMessage("menu");
+        return gm.getMessage("menu");
     }
 
     public String settings() {
-        return cm.getMessage("settings");
+        return gm.getMessage("settings");
     }
 
     public String gameplay(String ... keyword) {
-        return cm.getMessage(keyword[0]);
+        return gm.getMessage(keyword[0]);
     }
 
     public String win() {
-        return cm.getMessage("winMessage");
+        return gm.getMessage("winMessage");
     }
 
     public String lose() {
-        return cm.getMessage("loseMessage");
+        return gm.getMessage("loseMessage");
     }
 
     public String goodbye() {
-        return cm.getMessage("goodbye");
+        return gm.getMessage("goodbye");
     }
 }

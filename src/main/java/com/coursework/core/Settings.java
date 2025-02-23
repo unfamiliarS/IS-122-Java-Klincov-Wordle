@@ -122,4 +122,8 @@ public class Settings {
     public int getAttempts() {
         return Integer.parseInt(properties.getProperty("attempts"));
     }
+
+    public String getUIType() {
+        return properties.getProperty("ui_type");
+    }
 }
