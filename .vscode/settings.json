@@ -6,5 +6,7 @@
         "org.graalvm.*",
         "io.micrometer.shaded.*",
         "java.awt.*"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "maven.view": "flat"
 }

@@ -7,11 +7,10 @@ import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import com.coursework.core.Dictionary;
-import com.coursework.core.Settings;
-import com.coursework.core.Wordle;
 import com.coursework.core.enums.Languages;
-import com.coursework.ui.cli.ConsoleUI;
+import com.coursework.core.impl.Dictionary;
+import com.coursework.core.impl.Settings;
+import com.coursework.core.impl.Wordle;
 
 public class ConsoleWordle extends Wordle {
 
@@ -22,7 +21,7 @@ public class ConsoleWordle extends Wordle {
         ui = new ConsoleUI(settings);
     }
 
-    public void game() {
+    public void play() {
 
         try (var scanner = new Scanner(new InputStreamReader(System.in));
              var pw = new PrintWriter(new OutputStreamWriter(System.out), true)) {
