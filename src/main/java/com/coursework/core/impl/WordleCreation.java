@@ -2,7 +2,7 @@ package com.coursework.core.impl;
 
 import com.coursework.console.ConsoleWordle;
 import com.coursework.core.Factory;
-import com.coursework.gui.GUIWordle;
+// import com.coursework.gui.GUIWordle;
 
 public class WordleCreation implements Factory<Wordle> { 
 
@@ -15,7 +15,7 @@ public class WordleCreation implements Factory<Wordle> {
     public Wordle create() {
         String uiType = settings.getUIType();
         if (uiType.equals("gui")) {
-            return new GUIWordle(settings);
+            // return new GUIWordle(settings);
         } else if (uiType.equals("console")) {
             return new ConsoleWordle(settings);
         }

@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import com.coursework.console.cli.ConsoleUI;
 import com.coursework.core.enums.Languages;
 import com.coursework.core.impl.Dictionary;
 import com.coursework.core.impl.Settings;

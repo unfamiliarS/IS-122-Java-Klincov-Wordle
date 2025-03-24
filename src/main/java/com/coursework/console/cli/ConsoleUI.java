@@ -1,4 +1,4 @@
-package com.coursework.console;
+package com.coursework.console.cli;
 
 import com.coursework.core.UserInterface;
 import com.coursework.core.UserInterfaceGoodbye;
