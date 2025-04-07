@@ -1,6 +1,3 @@
-/home/semyon/programs/Wordle/src/main/java/com/coursework/console/ConsoleApp.java
-/home/semyon/programs/Wordle/src/main/java/com/coursework/console/ConsoleWordle.java
-/home/semyon/programs/Wordle/src/main/java/com/coursework/console/cli/ConsoleUI.java
 /home/semyon/programs/Wordle/src/main/java/com/coursework/core/Factory.java
 /home/semyon/programs/Wordle/src/main/java/com/coursework/core/GameMessages.java
 /home/semyon/programs/Wordle/src/main/java/com/coursework/core/LanguageChangeListener.java
@@ -17,7 +14,6 @@
 /home/semyon/programs/Wordle/src/main/java/com/coursework/core/impl/RussianGameMessages.java
 /home/semyon/programs/Wordle/src/main/java/com/coursework/core/impl/Settings.java
 /home/semyon/programs/Wordle/src/main/java/com/coursework/core/impl/Wordle.java
-/home/semyon/programs/Wordle/src/main/java/com/coursework/core/impl/WordleCreation.java
 /home/semyon/programs/Wordle/src/main/java/com/coursework/gui/GUIApp.java
 /home/semyon/programs/Wordle/src/main/java/com/coursework/gui/controllers/GameController.java
 /home/semyon/programs/Wordle/src/main/java/com/coursework/gui/controllers/MenuController.java

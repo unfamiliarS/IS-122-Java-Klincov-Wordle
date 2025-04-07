@@ -23,14 +23,12 @@ public class SettingsController {
 
     @FXML
     private void handleRussianButton() {
-        // Логика для русского языка
         russianButton.setStyle("-fx-background-color: #4CAF50;");
         englishButton.setStyle("");
     }
 
     @FXML
     private void handleEnglishButton() {
-        // Логика для английского языка
         englishButton.setStyle("-fx-background-color: #4CAF50;");
         russianButton.setStyle("");
     }

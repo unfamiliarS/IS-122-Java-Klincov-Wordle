@@ -38,6 +38,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
+                    <!-- mvn clean javafx:run -->
                     <mainClass>com.coursework.gui.GUIApp</mainClass>
                 </configuration>
             </plugin>
@@ -46,6 +47,7 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
+                    <include>**/*.txt</include>
                     <include>**/*.fxml</include>
                     <include>**/*.properties</include>
                 </includes>

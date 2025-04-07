@@ -123,7 +123,4 @@ public class Settings {
         return Integer.parseInt(properties.getProperty("attempts"));
     }
 
-    public String getUIType() {
-        return properties.getProperty("ui_type");
-    }
 }
