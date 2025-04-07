@@ -17,11 +17,6 @@ public class MenuController {
     @FXML private Button rulesButton;
 
     @FXML
-    private void initialize() {
-        rulesButton.setStyle("-fx-background-radius: 15; -fx-min-width: 30; -fx-min-height: 30;");
-    }
-
-    @FXML
     private void handlePlayButton() throws IOException {
         switchScene("/com/coursework/fxmls/game.fxml");
     }

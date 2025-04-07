@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SettingsController {
+
     @FXML private Button russianButton;
     @FXML private Button englishButton;
     @FXML private Button backButton;
@@ -18,18 +19,17 @@ public class SettingsController {
     private void handleBackButton() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/com/coursework/fxmls/menu.fxml"));
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
     }
 
     @FXML
     private void handleRussianButton() {
-        russianButton.setStyle("-fx-background-color: #4CAF50;");
-        englishButton.setStyle("");
+   
     }
 
     @FXML
     private void handleEnglishButton() {
-        englishButton.setStyle("-fx-background-color: #4CAF50;");
-        russianButton.setStyle("");
+    
     }
 }
