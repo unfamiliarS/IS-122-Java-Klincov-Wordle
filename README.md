@@ -3,5 +3,9 @@ The rules are very simple: You have to guess the hidden word (from 5 letters) in
 ## Different Languages
 There is a choice of two languages: **English** and **Russian**.
 
-#### PS
-(Developed as part of a training project on java (spring) and stock HTML, CSS, JS).
+# Building
+To compile and run the application, execute the command in the project directory, having previously installed **Maven**:
+
+```bash
+mvn compile exec:java 
+```

@@ -1,4 +1,4 @@
-package com.coursework.console;
+package com.coursework;
 
 import com.coursework.core.impl.Settings;
 import com.coursework.core.impl.Wordle;
