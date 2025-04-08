@@ -11,12 +11,11 @@
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-   <VBox prefHeight="305.0" prefWidth="510.0" spacing="2" style="-fx-padding: 5;">
+   <VBox fx:id="labelRows" prefHeight="305.0" prefWidth="510.0" spacing="2" style="-fx-padding: 5;">
       <children>
-          
           <!-- Поле для букв -->
           <HBox alignment="CENTER" prefHeight="52.0" prefWidth="450.0" spacing="5">
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -25,7 +24,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -34,7 +33,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -43,7 +42,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -52,7 +51,54 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
+                  <font>
+                      <Font size="36" />
+                  </font>
+                  <style>
+                -fx-border-color: gray;
+                -fx-border-width: 2px;
+            </style>
+              </Label>
+          </HBox>
+            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="450.0" spacing="5">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
+                  <font>
+                      <Font size="36" />
+                  </font>
+                  <style>
+                -fx-border-color: gray;
+                -fx-border-width: 2px;
+            </style>
+              </Label>
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
+                  <font>
+                      <Font size="36" />
+                  </font>
+                  <style>
+                -fx-border-color: gray;
+                -fx-border-width: 2px;
+            </style>
+              </Label>
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
+                  <font>
+                      <Font size="36" />
+                  </font>
+                  <style>
+                -fx-border-color: gray;
+                -fx-border-width: 2px;
+            </style>
+              </Label>
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
+                  <font>
+                      <Font size="36" />
+                  </font>
+                  <style>
+                -fx-border-color: gray;
+                -fx-border-width: 2px;
+            </style>
+              </Label>
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -63,7 +109,7 @@
               </Label>
           </HBox>
           <HBox alignment="CENTER" prefHeight="87.0" prefWidth="450.0" spacing="5">
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -72,7 +118,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -81,7 +127,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -90,7 +136,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -99,7 +145,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -110,7 +156,7 @@
               </Label>
           </HBox>
           <HBox alignment="CENTER" prefHeight="111.0" prefWidth="450.0" spacing="5">
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -119,7 +165,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -128,7 +174,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -137,7 +183,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -146,7 +192,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -157,7 +203,7 @@
               </Label>
           </HBox>
           <HBox alignment="CENTER" prefHeight="130.0" prefWidth="450.0" spacing="5">
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -166,7 +212,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -175,7 +221,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -184,7 +230,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -193,7 +239,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -204,7 +250,7 @@
               </Label>
           </HBox>
           <HBox alignment="CENTER" prefHeight="0.0" prefWidth="450.0" spacing="5">
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -213,7 +259,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -222,7 +268,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -231,7 +277,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -240,7 +286,7 @@
                 -fx-border-width: 2px;
             </style>
               </Label>
-              <Label minHeight="60.0" minWidth="60.0" text=" ">
+              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
                   <font>
                       <Font size="36" />
                   </font>
@@ -252,7 +298,7 @@
           </HBox>
       </children>
       <VBox.margin>
-         <Insets bottom="140.0" top="50.0" />
+         <Insets bottom="90.0" top="50.0" />
       </VBox.margin>
    </VBox>
     

@@ -1,13 +1,13 @@
 package com.coursework.gui.controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
+import com.coursework.gui.impl.SceneLoader;
 
 public class SettingsController {
 
@@ -18,14 +18,13 @@ public class SettingsController {
     @FXML
     private void handleBackButton() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/coursework/fxmls/menu.fxml"));
-        Scene scene = new Scene(root);
+        Scene scene = new SceneLoader().mainMenu();
         stage.setScene(scene);
     }
 
     @FXML
     private void handleRussianButton() {
-   
+    
     }
 
     @FXML
