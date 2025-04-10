@@ -5,6 +5,7 @@ import com.coursework.core.Wordle;
 import com.coursework.core.impl.Settings;
 
 public class GUIWordle extends Wordle {
+
     private WordSubmissionListener listener;
     private int currentAttempt = 0;
 
@@ -13,18 +14,13 @@ public class GUIWordle extends Wordle {
     }
 
     public interface WordSubmissionListener {
-        void onWordSubmitted(String comparisonResult);
+        void onWordSubmitted(String[] comparisonResult);
         void onInvalidWord(String word);
         void onGameOver(boolean won, String answer);
     }
 
     public void setWordSubmissionListener(WordSubmissionListener listener) {
         this.listener = listener;
-    }
-
-    @Override
-    public void play() {
-        // Инициализация игры, сам игровой процесс будет управляться через submitWord
     }
 
     public boolean submitWord(String word) {
@@ -46,7 +42,7 @@ public class GUIWordle extends Wordle {
         }
 
         userWords[currentAttempt] = word;
-        String result = comparingWords(word, answer);
+        String[] result = comparingWords(word, answer);
         
         if (listener != null) {
             listener.onWordSubmitted(result);

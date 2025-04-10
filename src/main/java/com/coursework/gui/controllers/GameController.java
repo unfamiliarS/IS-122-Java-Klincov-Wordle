@@ -44,6 +44,7 @@ public class GameController implements GUIWordle.WordSubmissionListener {
             maxAttempts = settings.getAttempts();
             wordleSession = new GUIWordle(settings);
             wordleSession.setWordSubmissionListener(this);
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -147,7 +148,7 @@ public class GameController implements GUIWordle.WordSubmissionListener {
     }
     
     @Override
-    public void onWordSubmitted(String comparisonResult) {
+    public void onWordSubmitted(String[] comparisonResult) {
         HBox currentLetterRow = letterRows.get(currentRow);
         colorLetters(currentLetterRow, comparisonResult);
         
@@ -168,18 +169,27 @@ public class GameController implements GUIWordle.WordSubmissionListener {
         showAlert("Игра окончена", message);
     }
 
-    private void colorLetters(HBox row, String result) {
-        for (int i = 0; i < wordLength; i++) {
+    private void colorLetters(HBox row, String[] coloredResult) {
+        for (int i = 0; i < wordLength && i < row.getChildren().size(); i++) {
             Label label = (Label) row.getChildren().get(i);
-            String c = label.getText().toLowerCase();
+            String coloredChar = coloredResult[i];
             
-            if (result.contains("\u001B[32m" + c)) {
-                label.setStyle("-fx-background-color: #6aaa64; -fx-text-fill: white;");
-            } else if (result.contains("\u001B[33m" + c)) {
-                label.setStyle("-fx-background-color: #c9b458; -fx-text-fill: white;");
-            } else {
-                label.setStyle("-fx-background-color: #acb2b6; -fx-text-fill: white;");
+            if (coloredChar.contains("\u001B[32m")) {
+                label.setStyle("-fx-background-color: #6aaa64; -fx-text-fill: white; " +
+                              "-fx-border-color: #6aaa64; -fx-border-width: 2px;");
+            } 
+            else if (coloredChar.contains("\u001B[33m")) {
+                label.setStyle("-fx-background-color: #c9b458; -fx-text-fill: white; " +
+                              "-fx-border-color: #c9b458; -fx-border-width: 2px;");
+            } 
+            else {
+                label.setStyle("-fx-background-color: #787c7e; -fx-text-fill: white; " +
+                              "-fx-border-color: #787c7e; -fx-border-width: 2px;");
             }
+            
+            // Устанавливаем текст (удаляем ANSI коды)
+            String text = coloredChar.replaceAll("\u001B\\[[0-9;]*m", "");
+            label.setText(text.toUpperCase());
         }
     }
 
