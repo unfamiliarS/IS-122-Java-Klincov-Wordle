@@ -7,13 +7,13 @@
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="800.0" prefWidth="550.0" spacing="20" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coursework.gui.controllers.SettingsController">
-    <Label text="Setting">
+    <Label fx:id="mainSettingsLabel" text="Setting">
         <font>
             <Font size="36.0" />
         </font>
     </Label>
     
-    <Label text="Language:">
+    <Label fx:id="languageLabel" text="Language:">
         <font>
             <Font size="24" />
         </font>

@@ -36,19 +36,21 @@ public class GameController implements GUIWordle.WordSubmissionListener {
     private int wordLength;
     private int maxAttempts;
 
-    @FXML
-    public void initialize() {
+    public GameController() {
         try {
-            settings = new Settings();
+            settings = Settings.getInstance();
             wordLength = settings.getWordLength();
             maxAttempts = settings.getAttempts();
-            wordleSession = new GUIWordle(settings);
+            wordleSession = new GUIWordle();
             wordleSession.setWordSubmissionListener(this);
             
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    @FXML
+    public void initialize() {
         letterRows = new ArrayList<>();
         for (int i = 0; i < maxAttempts; i++)
             letterRows.add((HBox) labelRows.getChildren().get(i));

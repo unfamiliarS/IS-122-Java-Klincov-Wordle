@@ -2,15 +2,14 @@ package com.coursework.gui.impl;
 
 import java.io.IOException;
 import com.coursework.core.Wordle;
-import com.coursework.core.impl.Settings;
 
 public class GUIWordle extends Wordle {
 
     private WordSubmissionListener listener;
     private int currentAttempt = 0;
 
-    public GUIWordle(Settings settings) throws IOException {
-        super(settings);
+    public GUIWordle() throws IOException {
+        super();
     }
 
     public interface WordSubmissionListener {

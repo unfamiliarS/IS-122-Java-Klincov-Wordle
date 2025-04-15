@@ -10,9 +10,13 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import com.coursework.core.enums.*;
+import com.coursework.core.impl.languages.LanguageManager;
 import com.coursework.core.LanguageChangeListener;
 
 public class Settings {
+
+    // Singleton
+    private static Settings instance;
 
     private static final String DEFAULT_PROPERTIES_FILE_PATH = "/wordle.properties";
     private static final String PROPERTIES_FILE_PATH = System.getenv("HOME") + "/.config/wordle/wordle.properties";
@@ -22,7 +26,7 @@ public class Settings {
     private Dictionary wordDictionary;
     private LanguageChangeListener listener;
 
-    public Settings() {
+    private Settings() {
 
         properties = new Properties();
         File propertiesFile = new File(PROPERTIES_FILE_PATH);
@@ -46,6 +50,13 @@ public class Settings {
         
     }
 
+    public static Settings getInstance() {
+        if (instance == null) {
+            instance = new Settings();
+        }
+        return instance;
+    }
+
     public void saveProperties() throws IOException {
         File configDir = new File(PROPERTIES_FILE_PATH).getParentFile();
         if (!configDir.exists() && !configDir.mkdirs()) {
@@ -59,10 +70,15 @@ public class Settings {
 
     public Settings setLanguage(Languages language) {
         properties.setProperty("language", language.name());
+        try {
+            saveProperties();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         setAnswerDictionary(LanguageManager.getAnswerWordsDictionary(language));
         setWordDictionary(LanguageManager.getAllWordsDictionary(language));
         if(this.listener != null)
-            notifyLanguageChange(language);
+            listener.onLanguageChanged(language);
         return this;
     }
 
@@ -74,10 +90,6 @@ public class Settings {
     private Settings setWordDictionary(Dictionary wordDictionary) {
         this.wordDictionary = wordDictionary;
         return this;
-    }
-    
-    private void notifyLanguageChange(Languages newLanguage) {
-        listener.onLanguageChanged(newLanguage);
     }
     
     public void setLanguageChangeListener(LanguageChangeListener listener) {

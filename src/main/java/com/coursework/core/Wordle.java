@@ -10,14 +10,13 @@ import com.coursework.core.impl.Settings;
 public abstract class Wordle {
 
     protected Settings settings;
-
     protected String answer;
     protected Dictionary allWordsDictionary;
     protected int attempts;
     protected String[] userWords;
 
-    public Wordle(Settings settings) throws IOException {
-        this.settings = settings;
+    public Wordle() throws IOException {
+        settings = Settings.getInstance();
         answer = settings.getAnswerDictionary().getRandomWord().toLowerCase();
         System.out.println("Answer word: " + answer);
         allWordsDictionary = settings.getWordDictionary();
@@ -68,5 +67,4 @@ public abstract class Wordle {
         return coloredResult;
     }
 
-    // protected abstract String getGameplayMesg(String keyword);
 }

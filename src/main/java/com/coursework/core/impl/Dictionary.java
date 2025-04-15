@@ -9,7 +9,7 @@ public class Dictionary {
 
     private final String path;
 
-    Dictionary(String path) {
+    public Dictionary(String path) {
         this.path = path;
     }
 

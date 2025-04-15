@@ -6,14 +6,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.coursework.core.impl.languages.LanguageManager;
 import com.coursework.gui.impl.SceneLoader;
 
 public class GUIApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Scene scene = new SceneLoader().mainMenu();
-        stage.setTitle("Wordle");
+        // Инициализация LanguageManager (загрузит настройки и тексты)
+        // LanguageManager LanguageManager = LanguageManager.getInstance();
+        
+        SceneLoader sceneLoader = new SceneLoader();
+        Scene scene = sceneLoader.mainMenu();
+        
         stage.setScene(scene);
         stage.show();
     }

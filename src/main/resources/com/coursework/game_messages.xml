@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game>
+    <title>Wordle</title>
+</game>
+<languages>
+    <language id="rus">
+        <menu>
+            <buttons>
+                <play>Играть</play>
+                <settings>Настройки</settings>
+                <exit>Выход</exit>
+                <rules>?</rules>
+            </buttons>
+        </menu>
+        <settings>
+            <labels>
+                <mainLabel>Настройки</mainLabel>
+                <language>Язык</language>
+            </labels>
+            <buttons>
+                <russian>Русский</russian>
+                <english>Английский</english>
+                <back>Назад</back>
+            </buttons>
+        </settings>
+    </language>
+    <language id="eng">
+        <menu>
+            <buttons>
+                <play>Play</play>
+                <settings>Settings</settings>
+                <exit>Exit</exit>
+                <rules>?</rules>
+            </buttons>
+        </menu>
+        <settings>
+            <labels>
+                <mainLabel>Settings</mainLabel>
+                <language>Language</language>
+            </labels>
+            <buttons>
+                <russian>Russian</russian>
+                <english>English</english>
+                <back>Back</back>
+            </buttons>
+        </settings>
+    </language>
+</languages>
