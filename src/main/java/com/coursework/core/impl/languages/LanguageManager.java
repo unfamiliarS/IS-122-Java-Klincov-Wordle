@@ -73,7 +73,6 @@ public class LanguageManager implements LanguageChangeListener {
 
     public String getText(String textId) {
         Languages currentLanguage = settings.getLanguage();
-        System.out.println("Текущий язык: " + currentLanguage);
         Language languageData = languagesData.getLanguage(currentLanguage.name().toLowerCase());
         
         Function<Language, String> provider = textProviders.get(textId);
