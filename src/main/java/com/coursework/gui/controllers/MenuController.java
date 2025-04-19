@@ -19,18 +19,18 @@ public class MenuController implements Localizable {
     
     private SceneLoader sceneLoader;
 
-    public void init(LanguageManager LanguageManager) {
-        sceneLoader = new SceneLoader();
-        LanguageManager.registerLocalizable("menu", this);
-        updateText(LanguageManager);
+    public void init(LanguageManager languageManager, SceneLoader sceneLoader) {
+        this.sceneLoader = sceneLoader;
+        languageManager.registerLocalizable("menu", this);
+        System.out.println("Init MenuController");
     }
 
     @Override
-    public void updateText(LanguageManager LanguageManager) {
-        playButton.setText(LanguageManager.getText("menu.play"));
-        settingsButton.setText(LanguageManager.getText("menu.settings"));
-        exitButton.setText(LanguageManager.getText("menu.exit"));
-        rulesButton.setText(LanguageManager.getText("menu.rules"));
+    public void updateText(LanguageManager languageManager) {
+        playButton.setText(languageManager.getText("menu.play"));
+        settingsButton.setText(languageManager.getText("menu.settings"));
+        exitButton.setText(languageManager.getText("menu.exit"));
+        rulesButton.setText(languageManager.getText("menu.rules"));
     }
 
     @FXML

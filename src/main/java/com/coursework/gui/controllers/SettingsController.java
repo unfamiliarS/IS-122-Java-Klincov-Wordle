@@ -24,20 +24,21 @@ public class SettingsController implements Localizable {
     private SceneLoader sceneLoader;
     private Settings settings;
 
-    public void init(LanguageManager LanguageManager) {
-        sceneLoader = new SceneLoader();
+    public void init(LanguageManager languageManager, SceneLoader sceneLoader) {
+        this.sceneLoader = sceneLoader;
         settings = Settings.getInstance();
-        LanguageManager.registerLocalizable("settings", this);
-        updateText(LanguageManager);
+        languageManager.registerLocalizable("settings", this);
+        updateText(languageManager);
+        System.out.println("Init MenuController");
     }
 
     @Override
-    public void updateText(LanguageManager LanguageManager) {
-        mainSettingsLabel.setText(LanguageManager.getText("settings.mainLabel"));
-        languageLabel.setText(LanguageManager.getText("settings.languageLabel"));
-        russianButton.setText(LanguageManager.getText("settings.russian"));
-        englishButton.setText(LanguageManager.getText("settings.english"));
-        backButton.setText(LanguageManager.getText("settings.back"));
+    public void updateText(LanguageManager languageManager) {
+        mainSettingsLabel.setText(languageManager.getText("settings.mainLabel"));
+        languageLabel.setText(languageManager.getText("settings.languageLabel"));
+        russianButton.setText(languageManager.getText("settings.russian"));
+        englishButton.setText(languageManager.getText("settings.english"));
+        backButton.setText(languageManager.getText("settings.back"));
     }
 
     @FXML

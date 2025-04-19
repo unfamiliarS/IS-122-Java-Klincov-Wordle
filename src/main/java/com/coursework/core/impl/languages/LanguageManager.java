@@ -28,6 +28,7 @@ public class LanguageManager implements LanguageChangeListener {
         settings.setLanguageChangeListener(this);
         loadTexts();
         registerDefaultTextProviders();
+        System.out.println("Create LanguageManager");
     }
 
     public static LanguageManager getInstance() {
@@ -40,7 +41,6 @@ public class LanguageManager implements LanguageChangeListener {
     private void loadTexts() {
         try (InputStream is = getClass().getResourceAsStream(XML_FILE_PATH)) {
             if (is == null) {
-                System.err.println("Файл не найден: " + XML_FILE_PATH);
                 throw new RuntimeException("XML file not found");
             }
             
@@ -49,22 +49,25 @@ public class LanguageManager implements LanguageChangeListener {
             languagesData = (LanguagesData) jaxbUnmarshaller.unmarshal(is);
             
         } catch (Exception e) {
-            throw new RuntimeException("Ошибка загрузки XML", e);
+            throw new RuntimeException(e);
         }
     }
+
     private void registerDefaultTextProviders() {
-        // Меню
+        // menu
         registerTextProvider("menu.play", l -> l.getMenu().getButtons().getPlay());
         registerTextProvider("menu.settings", l -> l.getMenu().getButtons().getSettings());
         registerTextProvider("menu.exit", l -> l.getMenu().getButtons().getExit());
         registerTextProvider("menu.rules", l -> l.getMenu().getButtons().getRules());
         
-        // Настройки
+        // settings
         registerTextProvider("settings.mainLabel", l -> l.getSettings().getLabels().getMainLabel());
         registerTextProvider("settings.languageLabel", l -> l.getSettings().getLabels().getLanguage());
         registerTextProvider("settings.russian", l -> l.getSettings().getButtons().getRussian());
         registerTextProvider("settings.english", l -> l.getSettings().getButtons().getEnglish());
         registerTextProvider("settings.back", l -> l.getSettings().getButtons().getBack());
+
+        // gameplay
     }
 
     public void registerTextProvider(String textId, Function<Language, String> provider) {

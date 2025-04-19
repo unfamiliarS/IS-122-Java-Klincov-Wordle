@@ -18,15 +18,15 @@ public class SceneLoader implements UserInterface<Scene> {
 
     public SceneLoader() {
         this.languageManager = LanguageManager.getInstance();
+        System.out.println("Create SceneLoader");
     }
 
     public Scene mainMenu() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/coursework/fxmls/menu.fxml"));
         Parent root = loader.load();
-        
-        // Получаем контроллер и передаем ему LanguageManager
+
         MenuController controller = loader.getController();
-        controller.init(languageManager);
+        controller.init(languageManager, this);
         
         return new Scene(root);
     }
@@ -36,7 +36,7 @@ public class SceneLoader implements UserInterface<Scene> {
         Parent root = loader.load();
         
         SettingsController controller = loader.getController();
-        controller.init(languageManager);
+        controller.init(languageManager, this);
         
         return new Scene(root);
     }
@@ -46,7 +46,7 @@ public class SceneLoader implements UserInterface<Scene> {
         Parent root = loader.load();
         
         // GameController controller = loader.getController();
-        // controller.init(LanguageManager, keyword);
+        // controller.init(languageManager, keyword);
         
         return new Scene(root);
     }
