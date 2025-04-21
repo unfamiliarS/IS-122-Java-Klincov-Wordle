@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import com.coursework.core.enums.*;
@@ -18,13 +20,13 @@ public class Settings {
     // Singleton
     private static Settings instance;
 
-    private static final String DEFAULT_PROPERTIES_FILE_PATH = "/wordle.properties";
-    private static final String PROPERTIES_FILE_PATH = System.getenv("HOME") + "/.config/wordle/wordle.properties";
+    private static final String DEFAULT_PROPERTIES_FILE_PATH = "/com/coursework/wordle.properties";
+    private static final String PROPERTIES_FILE_PATH = getConfigFilePath();
 
     private Properties properties;
     private Dictionary answerDictionary;
     private Dictionary wordDictionary;
-    private LanguageChangeListener listener;
+    private List<LanguageChangeListener> languageListeners;
 
     private Settings() {
 
@@ -48,6 +50,22 @@ public class Settings {
         setAnswerDictionary(LanguageManager.getAnswerWordsDictionary(getLanguage()));
         setWordDictionary(LanguageManager.getAllWordsDictionary(getLanguage()));
         
+        languageListeners = new ArrayList<>();
+        System.out.println("The Settings creation is complete");
+
+    }
+
+    private static String getConfigFilePath() {
+        String os = System.getProperty("os.name").toLowerCase();
+        String configDir = "linux";
+        
+        if (os.contains("win")) {
+            configDir = System.getenv("LOCALAPPDATA") + "\\Wordle\\wordle.properties";
+        } else if (os.contains("linux")) {
+            configDir = System.getenv("HOME") + "/.config/wordle/wordle.properties";
+        }
+        
+        return configDir;
     }
 
     public static Settings getInstance() {
@@ -77,9 +95,12 @@ public class Settings {
         }
         setAnswerDictionary(LanguageManager.getAnswerWordsDictionary(language));
         setWordDictionary(LanguageManager.getAllWordsDictionary(language));
-        if(this.listener != null)
-            listener.onLanguageChanged(language);
+        notifyLanguageChanged(language);
         return this;
+    }
+
+    private void notifyLanguageChanged(Languages newLanguage) {
+        languageListeners.forEach(listener -> listener.onLanguageChanged(newLanguage));
     }
 
     private Settings setAnswerDictionary(Dictionary answerDictionary) {
@@ -92,8 +113,14 @@ public class Settings {
         return this;
     }
     
-    public void setLanguageChangeListener(LanguageChangeListener listener) {
-        this.listener = listener;
+    public void addLanguageChangeListener(LanguageChangeListener listener) {
+        if (!languageListeners.contains(listener)) {
+            languageListeners.add(listener);
+        }
+    }
+
+    public void removeLanguageChangeListener(LanguageChangeListener listener) {
+        languageListeners.remove(listener);
     }
 
     public Settings setDifficulty(Difficulties difficulty) {

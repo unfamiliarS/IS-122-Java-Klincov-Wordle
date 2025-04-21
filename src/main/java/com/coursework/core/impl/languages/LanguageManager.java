@@ -3,7 +3,6 @@ package com.coursework.core.impl.languages;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Unmarshaller;
 
-import com.coursework.core.LanguageChangeListener;
 import com.coursework.core.enums.Dictionaries;
 import com.coursework.core.enums.Languages;
 import com.coursework.core.impl.Dictionary;
@@ -14,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class LanguageManager implements LanguageChangeListener {
+public class LanguageManager {
     
     private static final String XML_FILE_PATH = "/com/coursework/game_messages.xml";
     private static LanguageManager instance;
@@ -25,7 +24,8 @@ public class LanguageManager implements LanguageChangeListener {
 
     private LanguageManager() {
         settings = Settings.getInstance();
-        settings.setLanguageChangeListener(this);
+        settings.addLanguageChangeListener(newLanguage -> 
+            localizableComponents.values().forEach(component -> component.updateText(this)));
         loadTexts();
         registerDefaultTextProviders();
         System.out.println("Create LanguageManager");
@@ -88,11 +88,6 @@ public class LanguageManager implements LanguageChangeListener {
     public void registerLocalizable(String id, Localizable component) {
         localizableComponents.put(id, component);
         component.updateText(this);
-    }
-
-    @Override
-    public void onLanguageChanged(Languages newLanguage) {
-        localizableComponents.values().forEach(component -> component.updateText(this));
     }
 
     public static Dictionary getAnswerWordsDictionary(Languages lang) {

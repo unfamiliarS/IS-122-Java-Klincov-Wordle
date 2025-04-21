@@ -11,7 +11,7 @@
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-   <VBox fx:id="labelRows" prefHeight="305.0" prefWidth="510.0" spacing="2" style="-fx-padding: 5;">
+   <VBox fx:id="letterLabelsRows" prefHeight="305.0" prefWidth="510.0" spacing="2" style="-fx-padding: 5;">
       <children>
           <!-- Поле для букв -->
           <HBox alignment="CENTER" prefHeight="52.0" prefWidth="450.0" spacing="5">
@@ -302,50 +302,89 @@
       </VBox.margin>
    </VBox>
     
-    <!-- Клавиатура -->
-    <VBox alignment="CENTER" spacing="3">
-        <!-- Первая строка клавиш -->
-        <HBox fx:id="firstRow" alignment="CENTER" spacing="3">
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="Q" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="W" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="E" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="R" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="T" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="Y" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="U" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="I" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="O" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="P" />
-        </HBox>
+    <VBox fx:id="keyboardContainer" alignment="CENTER" spacing="3">
+        <VBox fx:id="engKeyboard" alignment="CENTER" spacing="3" visible="false" managed="false">
+            <HBox fx:id="firstRow" alignment="CENTER" spacing="3">
+                <Button fx:id="KEY_Q" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="Q" />
+                <Button fx:id="KEY_W" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="W" />
+                <Button fx:id="KEY_E" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="E" />
+                <Button fx:id="KEY_R" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="R" />
+                <Button fx:id="KEY_T" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="T" />
+                <Button fx:id="KEY_Y" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="Y" />
+                <Button fx:id="KEY_U" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="U" />
+                <Button fx:id="KEY_I" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="I" />
+                <Button fx:id="KEY_O" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="O" />
+                <Button fx:id="KEY_P" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="P" />
+            </HBox>
+            <HBox fx:id="secondRow" alignment="CENTER" spacing="3">
+                <Button fx:id="KEY_A" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="A" />
+                <Button fx:id="KEY_S" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="S" />
+                <Button fx:id="KEY_D" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="D" />
+                <Button fx:id="KEY_F" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="F" />
+                <Button fx:id="KEY_G" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="G" />
+                <Button fx:id="KEY_H" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="H" />
+                <Button fx:id="KEY_J" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="J" />
+                <Button fx:id="KEY_K" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="K" />
+                <Button fx:id="KEY_L" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="L" />
+            </HBox>
+            <HBox fx:id="thirdRow" alignment="CENTER" spacing="3">
+                <Button fx:id="ENTER_BTN" style="-fx-font-size: 14px; -fx-min-width: 65px; -fx-min-height: 55px; -fx-background-radius: 3;" text="ENTER" />
+                <Button fx:id="KEY_Z" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="Z" />
+                <Button fx:id="KEY_X" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="X" />
+                <Button fx:id="KEY_C" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="C" />
+                <Button fx:id="KEY_V" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="V" />
+                <Button fx:id="KEY_B" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="B" />
+                <Button fx:id="KEY_N" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="N" />
+                <Button fx:id="KEY_M" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="M" />
+                <Button fx:id="DELETE_BTN" style="-fx-font-size: 18px; -fx-min-width: 65px; -fx-min-height: 55px; -fx-background-radius: 3;" text="⌫" />
+            </HBox>
+        </VBox>
+        <VBox fx:id="rusKeyboard" alignment="CENTER" spacing="3" visible="false" managed="false">
+            <HBox fx:id="firstRow" alignment="CENTER" spacing="3">
+                <Button fx:id="KEY_Й" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Й" />
+                <Button fx:id="KEY_Ц" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ц" />
+                <Button fx:id="KEY_У" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="У" />
+                <Button fx:id="KEY_К" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="К" />
+                <Button fx:id="KEY_Е" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Е" />
+                <Button fx:id="KEY_Н" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Н" />
+                <Button fx:id="KEY_Г" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Г" />
+                <Button fx:id="KEY_Ш" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ш" />
+                <Button fx:id="KEY_Щ" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Щ" />
+                <Button fx:id="KEY_З" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="З" />
+                <Button fx:id="KEY_Х" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Х" />
+                <Button fx:id="KEY_Ъ" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ъ" />
+            </HBox>
+            <HBox fx:id="secondRow" alignment="CENTER" spacing="3">
+                <Button fx:id="KEY_Ф" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ф" />
+                <Button fx:id="KEY_Ы" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ы" />
+                <Button fx:id="KEY_В" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="В" />
+                <Button fx:id="KEY_А" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="А" />
+                <Button fx:id="KEY_П" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="П" />
+                <Button fx:id="KEY_Р" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Р" />
+                <Button fx:id="KEY_О" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="О" />
+                <Button fx:id="KEY_Л" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Л" />
+                <Button fx:id="KEY_Д" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Д" />
+                <Button fx:id="KEY_Ж" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ж" />
+                <Button fx:id="KEY_Э" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Э" />
+            </HBox>
+            <HBox fx:id="thirdRow" alignment="CENTER" spacing="3">
+                <Button fx:id="ENTER_BTN" style="-fx-font-size: 14px; -fx-min-width: 65px; -fx-min-height: 50px; -fx-background-radius: 3;" text="ВВОД" />
+                <Button fx:id="KEY_Я" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Я" />
+                <Button fx:id="KEY_Ч" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ч" />
+                <Button fx:id="KEY_С" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="С" />
+                <Button fx:id="KEY_М" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="М" />
+                <Button fx:id="KEY_И" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="И" />
+                <Button fx:id="KEY_Т" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Т" />
+                <Button fx:id="KEY_Ь" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ь" />
+                <Button fx:id="KEY_Б" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Б" />
+                <Button fx:id="KEY_Ю" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ю" />
+                <Button fx:id="DELETE_BTN" style="-fx-font-size: 18px; -fx-min-width: 65px; -fx-min-height: 50px; -fx-background-radius: 3;" text="⌫" />
+            </HBox>
+        </VBox>
 
-        <!-- Вторая строка клавиш -->
-        <HBox fx:id="secondRow" alignment="CENTER" spacing="3">
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="A" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="S" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="D" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="F" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="G" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="H" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="J" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="K" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="L" />
-        </HBox>
-
-        <!-- Третья строка клавиш -->
-        <HBox fx:id="thirdRow" alignment="CENTER" spacing="3">
-            <Button style="-fx-font-size: 14px; -fx-min-width: 65px; -fx-min-height: 55px; -fx-background-radius: 3;" text="ENTER" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="Z" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="X" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="C" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="V" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="B" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="N" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="M" />
-            <Button style="-fx-font-size: 18px; -fx-min-width: 65px; -fx-min-height: 55px; -fx-background-radius: 3;" text="⌫" />
-        </HBox>
-      <VBox.margin>
-         <Insets bottom="20.0" />
-      </VBox.margin>
+        <VBox.margin>
+            <Insets bottom="20.0" />
+        </VBox.margin>
     </VBox>
     
     <Button fx:id="backButton" onAction="#handleBackButton" text="Menu">

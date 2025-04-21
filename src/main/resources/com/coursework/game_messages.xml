@@ -1,29 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <languages>
-    <language id="rus">
-        <menu>
-            <buttons>
-                <play>Играть</play>
-                <settings>Настройки</settings>
-                <exit>Выход</exit>
-                <rules>?</rules>
-            </buttons>
-        </menu>
-        <settings>
-            <labels>
-                <mainLabel>Настройки</mainLabel>
-                <language>Язык</language>
-            </labels>
-            <buttons>
-                <russian>Русский</russian>
-                <english>Английский</english>
-                <back>Назад</back>
-            </buttons>
-        </settings>
-        <!-- <gameplay>
-            
-        </gameplay> -->
-    </language>
     <language id="eng">
         <menu>
             <buttons>
@@ -44,5 +20,31 @@
                 <back>Back</back>
             </buttons>
         </settings>
+    </language>
+        <language id="rus">
+        <menu>
+            <buttons>
+                <play>Играть</play>
+                <settings>Настройки</settings>
+                <exit>Выход</exit>
+                <rules>?</rules>
+            </buttons>
+        </menu>
+        <settings>
+            <labels>
+                <mainLabel>Настройки</mainLabel>
+                <language>Язык</language>
+            </labels>
+            <buttons>
+                <russian>Русский</russian>
+                <english>Английский</english>
+                <back>Назад</back>
+            </buttons>
+        </settings>
+        <gameplay>
+            <!-- <buttons>
+                <menu></menu>
+            </buttons> -->
+        </gameplay>
     </language>
 </languages>

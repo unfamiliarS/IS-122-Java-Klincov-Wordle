@@ -16,16 +16,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.coursework.core.Wordle;
+import com.coursework.core.enums.Languages;
 import com.coursework.gui.impl.SceneLoader;
 
 public class GameController extends Wordle {
 
-    @FXML private VBox labelRows;
+    @FXML private VBox keyboardContainer;
+    @FXML private VBox letterLabelsRows;
     @FXML private HBox firstRow;
     @FXML private HBox secondRow;
     @FXML private HBox thirdRow;
     @FXML private Button backButton;
     
+    private VBox currentKeyboard;
     private List<HBox> letterRows;
     private int currentRow = 0;
     private int currentLetterIndex = 0;
@@ -37,10 +40,16 @@ public class GameController extends Wordle {
     
     @FXML
     public void initialize() {
+        // init Keyboard
+        settings.addLanguageChangeListener(newLanguage -> updateKeyboard(newLanguage));
+        updateKeyboard(settings.getLanguage());
+        System.out.println("Init Keyboard");
+        
         letterRows = new ArrayList<>();
         for (int i = 0; i < attempts; i++)
-            letterRows.add((HBox) labelRows.getChildren().get(i));
+            letterRows.add((HBox) letterLabelsRows.getChildren().get(i));
         
+        // this listener will be triggered whenever the scene associated with backButton changes.
         backButton.sceneProperty().addListener((obs, oldScene, newScene) -> {
             if (newScene != null) {
                 setupKeyboard();
@@ -49,60 +58,80 @@ public class GameController extends Wordle {
         System.out.println("Init GameController");
     }
 
+    private void updateKeyboard(Languages lang) {
+        String keyboardId = lang.name().toLowerCase() + "Keyboard";
+        Node targetKeyboard = null;
+    
+        for (Node node : keyboardContainer.getChildren()) {
+            if (keyboardId.equals(node.getId())) {
+                targetKeyboard = node;
+            }
+            node.setVisible(false);
+            node.setManaged(false);
+        }
+        if (targetKeyboard == null) {
+            throw new IllegalStateException("Keyboard not found for language: " + lang);
+        }
+        targetKeyboard.setVisible(true);
+        targetKeyboard.setManaged(true);
+        currentKeyboard = (VBox) targetKeyboard;
+    }
+
     private void setupKeyboard() {
-        // Обработка физической клавиатуры
-        backButton.getScene().addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            backButton.getScene().getFocusOwner().requestFocus();
-            handleKeyPress(event);
-        });
+        // handling the physical keyboard
+        backButton.getScene().addEventFilter(KeyEvent.KEY_PRESSED, this::handleKeyPress);
         
-        // Обработка виртуальной клавиатуры
-        for (HBox row : List.of(firstRow, secondRow, thirdRow)) {
-            for (Node node : row.getChildren()) {
-                if (node instanceof Button) {
-                    Button button = (Button) node;
-                    button.setFocusTraversable(false);
-                    button.setOnAction(event -> {
-                        handleButtonPress(button.getText());
-                        button.getParent().requestFocus();
-                    });
+        // handling the virtual keyboard 
+        for (Node row : currentKeyboard.getChildren()) {
+            if (row instanceof HBox keyboardRow) {
+                for (Node node : keyboardRow.getChildren()) {
+                    if (node instanceof Button button) {
+                        button.setFocusTraversable(false);
+                        button.setOnAction(event -> {
+                            handleButtonPress(button.getId());
+                            // button.getParent().requestFocus();
+                        });
+                    }
                 }
             }
         }
     }
 
+    // translation into button id for physical keyboard
     private void handleKeyPress(KeyEvent event) {
-        String keyText = event.getText().toUpperCase();
+        String keyId = switch (event.getCode()) {
+            case ENTER -> "ENTER_BTN";
+            case BACK_SPACE -> "DELETE_BTN";
+            default -> event.getText().toUpperCase().matches("[A-ZА-Я]") 
+                        ? "KEY_" + event.getText().toUpperCase() 
+                        : null;
+        };
         
-        if (keyText.matches("[A-Z]")) {
-            handleButtonPress(keyText);
-        } else {
-            switch (event.getCode()) {
-                case ENTER -> handleButtonPress("ENTER");
-                case BACK_SPACE -> handleButtonPress("⌫");
-                default -> {}
-            }
+        if (keyId != null) {
+            handleButtonPress(keyId);
         }
         event.consume();
     }
 
-    private void handleButtonPress(String key) {
+    private void handleButtonPress(String buttonId) {
         if (currentRow >= attempts) return;
-
+    
         HBox currentLetterRow = letterRows.get(currentRow);
         
-        if (key.matches("[A-Z]") && currentLetterIndex < wordLength) {
-            // Добавление буквы
-            var label = (Label) currentLetterRow.getChildren().get(currentLetterIndex);
-            label.setText(key);
-            currentLetterIndex++;
-        } else if (key.equals("⌫") && currentLetterIndex > 0) {
-            // Удаление буквы
+        if (buttonId.startsWith("KEY_")) {
+            String letter = buttonId.substring(4);
+            if (currentLetterIndex < wordLength) {
+                var label = (Label) currentLetterRow.getChildren().get(currentLetterIndex);
+                label.setText(letter);
+                currentLetterIndex++;
+            }
+        } 
+        else if (buttonId.equals("DELETE_BTN") && currentLetterIndex > 0) {
             currentLetterIndex--;
             var label = (Label) currentLetterRow.getChildren().get(currentLetterIndex);
             label.setText(" ");
-        } else if (key.equals("ENTER") && currentLetterIndex == wordLength) {
-            // Обработка ввода слова
+        } 
+        else if (buttonId.equals("ENTER_BTN") && currentLetterIndex == wordLength) {
             processWord();
         }
     }
@@ -115,15 +144,13 @@ public class GameController extends Wordle {
             var label = (Label) currentLetterRow.getChildren().get(i);
             word.append(label.getText());
         }
-        
-        if (!submitWord(word.toString())) {
-            clearCurrentRow();
-        }
+        submitWord(word.toString());
     }
    
     public boolean submitWord(String word) {
-        if (currentAttempt >= attempts)
+        if (currentAttempt >= attempts) {
             return false;
+        }
 
         word = word.toLowerCase();
         
@@ -143,8 +170,18 @@ public class GameController extends Wordle {
         boolean won = word.equals(answer);
         currentAttempt++;
 
-        if (won) onGameOver(won, answer);
+        if (won || currentAttempt >= attempts) 
+            onGameOver(won);
+
         return true;
+    }
+
+    public void onWordSubmitted(String[] comparisonResult) {
+        HBox currentLetterRow = letterRows.get(currentRow);
+        colorLetters(currentLetterRow, comparisonResult);
+        
+        currentRow++;
+        currentLetterIndex = 0;
     }
 
     private void clearCurrentRow() {
@@ -157,47 +194,61 @@ public class GameController extends Wordle {
         currentLetterIndex = 0;
     }
     
-    public void onWordSubmitted(String[] comparisonResult) {
-        HBox currentLetterRow = letterRows.get(currentRow);
-        colorLetters(currentLetterRow, comparisonResult);
-        
-        currentRow++;
-        currentLetterIndex = 0;
-    }
-    
     public void onInvalidWord(String word) {
         showAlert("Ошибка", "Слово \"" + word + "\" не найдено в словаре");
         clearCurrentRow();
     }
 
-    public void onGameOver(boolean won, String answer) {
+    public void onGameOver(boolean won) {
         String message = won ? "Поздравляем! Вы угадали слово!" 
                            : "Игра окончена. Загаданное слово: " + answer;
         showAlert("Игра окончена", message);
+        backButton.getScene().removeEventFilter(KeyEvent.KEY_PRESSED, this::handleKeyPress);
     }
 
     private void colorLetters(HBox row, String[] coloredResult) {
         for (int i = 0; i < wordLength && i < row.getChildren().size(); i++) {
             Label label = (Label) row.getChildren().get(i);
             String coloredChar = coloredResult[i];
+            String text = coloredChar.replaceAll("\u001B\\[[0-9;]*m", "").toUpperCase();
             
             if (coloredChar.contains("\u001B[32m")) {
                 label.setStyle("-fx-background-color: #6aaa64; -fx-text-fill: white; " +
                               "-fx-border-color: #6aaa64; -fx-border-width: 2px;");
+                colorKeyboardButton(text, "#6aaa64");
             } 
             else if (coloredChar.contains("\u001B[33m")) {
                 label.setStyle("-fx-background-color: #c9b458; -fx-text-fill: white; " +
                               "-fx-border-color: #c9b458; -fx-border-width: 2px;");
+                colorKeyboardButton(text, "#c9b458");
             } 
             else {
                 label.setStyle("-fx-background-color: #787c7e; -fx-text-fill: white; " +
                               "-fx-border-color: #787c7e; -fx-border-width: 2px;");
+                colorKeyboardButton(text, "#787c7e");
             }
             
-            // Устанавливаем текст (удаляем ANSI коды)
-            String text = coloredChar.replaceAll("\u001B\\[[0-9;]*m", "");
-            label.setText(text.toUpperCase());
+            label.setText(text);
         }
+    }
+    
+    private void colorKeyboardButton(String letter, String color) {
+        searchAndColorButtonInKeyboard(currentKeyboard, letter, color);
+    }
+    
+    private void searchAndColorButtonInKeyboard(VBox keyboard, String letter, String color) {
+        keyboard.getChildren().stream()
+            .filter(row -> row instanceof HBox)
+            .flatMap(row -> ((HBox) row).getChildren().stream())
+            .filter(node -> node instanceof Button)
+            .map(node -> (Button) node)
+            .filter(button -> button.getText().equalsIgnoreCase(letter))
+            .forEach(button -> {
+                String currentStyle = button.getStyle();
+                if (!currentStyle.contains("#6aaa64")) {
+                    button.setStyle(currentStyle + " -fx-background-color: " + color + ";");
+                }
+            });
     }
 
     private void showAlert(String title, String message) {
