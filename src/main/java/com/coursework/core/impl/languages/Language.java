@@ -12,8 +12,13 @@ public class Language {
     
     @XmlElement
     private Settings settings;
+
+    @XmlElement
+    private Gameplay gameplay;
     
     public String getId() { return id; }
     public Menu getMenu() { return menu; }
     public Settings getSettings() { return settings; }
+    public Gameplay getGameplay() { return gameplay; }
+    
 }

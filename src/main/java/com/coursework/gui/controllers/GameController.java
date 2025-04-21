@@ -17,9 +17,11 @@ import java.util.List;
 
 import com.coursework.core.Wordle;
 import com.coursework.core.enums.Languages;
+import com.coursework.core.impl.languages.LanguageManager;
+import com.coursework.core.impl.languages.Localizable;
 import com.coursework.gui.impl.SceneLoader;
 
-public class GameController extends Wordle {
+public class GameController extends Wordle implements Localizable {
 
     @FXML private VBox keyboardContainer;
     @FXML private VBox letterLabelsRows;
@@ -28,6 +30,9 @@ public class GameController extends Wordle {
     @FXML private HBox thirdRow;
     @FXML private Button backButton;
     
+    private SceneLoader sceneLoader;
+    private LanguageManager languageManager;
+
     private VBox currentKeyboard;
     private List<HBox> letterRows;
     private int currentRow = 0;
@@ -56,6 +61,18 @@ public class GameController extends Wordle {
             }
         });
         System.out.println("Init GameController");
+    }
+
+    public void init(LanguageManager languageManager, SceneLoader sceneLoader) {
+        this.languageManager = languageManager;    
+        this.sceneLoader = sceneLoader;
+        languageManager.registerLocalizable("gameplay", this);
+        updateText(languageManager);
+    }
+
+    @Override
+    public void updateText(LanguageManager languageManager) {
+        backButton.setText(languageManager.getText("gameplay.menu"));
     }
 
     private void updateKeyboard(Languages lang) {
@@ -89,7 +106,6 @@ public class GameController extends Wordle {
                         button.setFocusTraversable(false);
                         button.setOnAction(event -> {
                             handleButtonPress(button.getId());
-                            // button.getParent().requestFocus();
                         });
                     }
                 }
@@ -195,15 +211,22 @@ public class GameController extends Wordle {
     }
     
     public void onInvalidWord(String word) {
-        showAlert("Ошибка", "Слово \"" + word + "\" не найдено в словаре");
-        clearCurrentRow();
+        String title = languageManager.getText("gameplay.alerts.title.error");
+        String message = String.format(
+            languageManager.getText("gameplay.alerts.invalidWord"), 
+            word
+        );
+        showAlert(title, message, this::clearCurrentRow);
     }
 
     public void onGameOver(boolean won) {
-        String message = won ? "Поздравляем! Вы угадали слово!" 
-                           : "Игра окончена. Загаданное слово: " + answer;
-        showAlert("Игра окончена", message);
-        backButton.getScene().removeEventFilter(KeyEvent.KEY_PRESSED, this::handleKeyPress);
+        String title = languageManager.getText("gameplay.alerts.title.gameOver");
+        String message = won 
+            ? languageManager.getText("gameplay.alerts.gameOver.won") 
+            : String.format(
+                languageManager.getText("gameplay.alerts.gameOver.lost"), 
+                answer);
+        showAlert(title, message, this::handleBackButton);
     }
 
     private void colorLetters(HBox row, String[] coloredResult) {
@@ -251,18 +274,29 @@ public class GameController extends Wordle {
             });
     }
 
-    private void showAlert(String title, String message) {
+    private void showAlert(String title, String message, Runnable afterHideAction) {
         Platform.runLater(() -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle(title);
             alert.setHeaderText(message);
+            
+            alert.setOnHidden(event -> {
+                if (afterHideAction != null) {
+                    afterHideAction.run();
+                }
+            });
+            
             alert.showAndWait();
         });
     }
 
     @FXML
-    private void handleBackButton() throws IOException {
+    private void handleBackButton() {
         Stage stage = (Stage) backButton.getScene().getWindow();
-        stage.setScene(new SceneLoader().mainMenu());
+        try {
+            stage.setScene(sceneLoader.mainMenu());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

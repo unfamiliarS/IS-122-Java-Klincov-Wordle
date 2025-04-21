@@ -28,6 +28,19 @@ public class Settings {
     private Dictionary wordDictionary;
     private List<LanguageChangeListener> languageListeners;
 
+    private static String getConfigFilePath() {
+        String os = System.getProperty("os.name").toLowerCase();
+        String configDir = "linux";
+        
+        if (os.contains("win")) {
+            configDir = System.getenv("LOCALAPPDATA") + "\\Wordle\\wordle.properties";
+        } else if (os.contains("linux")) {
+            configDir = System.getenv("HOME") + "/.config/wordle/wordle.properties";
+        }
+        
+        return configDir;
+    }
+    
     private Settings() {
 
         properties = new Properties();
@@ -53,19 +66,6 @@ public class Settings {
         languageListeners = new ArrayList<>();
         System.out.println("The Settings creation is complete");
 
-    }
-
-    private static String getConfigFilePath() {
-        String os = System.getProperty("os.name").toLowerCase();
-        String configDir = "linux";
-        
-        if (os.contains("win")) {
-            configDir = System.getenv("LOCALAPPDATA") + "\\Wordle\\wordle.properties";
-        } else if (os.contains("linux")) {
-            configDir = System.getenv("HOME") + "/.config/wordle/wordle.properties";
-        }
-        
-        return configDir;
     }
 
     public static Settings getInstance() {

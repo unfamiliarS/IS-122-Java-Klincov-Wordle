@@ -68,6 +68,12 @@ public class LanguageManager {
         registerTextProvider("settings.back", l -> l.getSettings().getButtons().getBack());
 
         // gameplay
+        registerTextProvider("gameplay.alerts.invalidWord", l -> l.getGameplay().getAlerts().getInvalidWord());
+        registerTextProvider("gameplay.alerts.gameOver.won", l -> l.getGameplay().getAlerts().getGameOver().getWon());
+        registerTextProvider("gameplay.alerts.gameOver.lost", l -> l.getGameplay().getAlerts().getGameOver().getLost());
+        registerTextProvider("gameplay.alerts.title.error", l -> l.getGameplay().getAlerts().getTitle().getError());
+        registerTextProvider("gameplay.alerts.title.gameOver", l -> l.getGameplay().getAlerts().getTitle().getGameOver());
+        registerTextProvider("gameplay.menu", l -> l.getGameplay().getButtons().getMenu());
     }
 
     public void registerTextProvider(String textId, Function<Language, String> provider) {

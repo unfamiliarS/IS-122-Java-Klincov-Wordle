@@ -45,8 +45,8 @@ public class SceneLoader implements UserInterface<Scene> {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/coursework/fxmls/game.fxml"));
         Parent root = loader.load();
         
-        // GameController controller = loader.getController();
-        // controller.init(languageManager, keyword);
+        GameController controller = loader.getController();
+        controller.init(languageManager, this);
         
         return new Scene(root);
     }

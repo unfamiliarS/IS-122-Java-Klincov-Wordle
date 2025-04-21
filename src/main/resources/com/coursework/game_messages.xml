@@ -20,6 +20,22 @@
                 <back>Back</back>
             </buttons>
         </settings>
+        <gameplay>
+            <buttons>
+                <menu>Menu</menu>
+            </buttons>
+            <alerts>
+                <invalidWord>Word "%s" not found in dictionary</invalidWord>
+                <gameOver>
+                    <won>Congratulations! You guessed the word!</won>
+                    <lost>Game over. The word was: %s</lost>
+                </gameOver>
+                <title>
+                    <error>Error</error>
+                    <gameOver>Game Over</gameOver>
+                </title>
+            </alerts>
+        </gameplay>
     </language>
         <language id="rus">
         <menu>
@@ -42,9 +58,20 @@
             </buttons>
         </settings>
         <gameplay>
-            <!-- <buttons>
-                <menu></menu>
-            </buttons> -->
+            <buttons>
+                <menu>Меню</menu>
+            </buttons>
+            <alerts>
+                <invalidWord>Слово "%s" не найдено в словаре</invalidWord>
+                <gameOver>
+                    <won>Поздравляем! Вы угадали слово!</won>
+                    <lost>Игра окончена. Загаданное слово: %s</lost>
+                </gameOver>
+                <title>
+                    <error>Ошибка</error>
+                    <gameOver>Игра окончена</gameOver>
+                </title>
+            </alerts>
         </gameplay>
     </language>
 </languages>

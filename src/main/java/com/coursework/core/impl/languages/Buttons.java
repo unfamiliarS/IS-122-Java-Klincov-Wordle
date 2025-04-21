@@ -16,6 +16,8 @@ public class Buttons {
     private String russian;
     @XmlElement(name = "english")
     private String english;
+    @XmlElement(name = "menu")
+    private String menu;
     @XmlElement(name = "back")
     private String back;
     
@@ -25,5 +27,6 @@ public class Buttons {
     public String getRules() { return rules; }
     public String getRussian() { return russian; }
     public String getEnglish() { return english; }
+    public String getMenu() { return menu; }
     public String getBack() { return back; }
 }
