@@ -96,24 +96,18 @@ public class LanguageManager implements LanguageChangeListener {
     }
 
     public static Dictionary getAnswerWordsDictionary(Languages lang) {
-        switch (lang) {
-            case ENG:
-                return new Dictionary(Dictionaries.ENG_DICT_ANSWER.getPath());        
-            case RUS:
-                return new Dictionary(Dictionaries.RUS_DICT_ANSWER.getPath());
-            default:
-                throw new EnumConstantNotPresentException(Languages.class, lang.name());
-        }
+        return switch (lang) {
+            case ENG -> new Dictionary(Dictionaries.ENG_DICT_ANSWER.getPath());
+            case RUS -> new Dictionary(Dictionaries.RUS_DICT_ANSWER.getPath());
+            default -> throw new EnumConstantNotPresentException(Languages.class, lang.name());
+        };
     }
 
     public static Dictionary getAllWordsDictionary(Languages lang) {
-        switch (lang) {
-            case ENG:
-                return new Dictionary(Dictionaries.ENG_DICT.getPath());        
-            case RUS:
-                return new Dictionary(Dictionaries.RUS_DICT.getPath());
-            default:
-                throw new EnumConstantNotPresentException(Languages.class, lang.name());
-        }
+        return switch (lang) {
+            case ENG -> new Dictionary(Dictionaries.ENG_DICT.getPath());        
+            case RUS -> new Dictionary(Dictionaries.RUS_DICT.getPath());
+            default -> throw new EnumConstantNotPresentException(Languages.class, lang.name());
+        };
     }
 }

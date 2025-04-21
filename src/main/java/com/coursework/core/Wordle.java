@@ -13,7 +13,7 @@ public abstract class Wordle {
     protected String answer;
     protected Dictionary allWordsDictionary;
     protected int attempts;
-    protected String[] userWords;
+    protected int wordLength;
 
     public Wordle() throws IOException {
         settings = Settings.getInstance();
@@ -21,7 +21,7 @@ public abstract class Wordle {
         System.out.println("Answer word: " + answer);
         allWordsDictionary = settings.getWordDictionary();
         attempts = settings.getAttempts();
-        userWords = new String[attempts];
+        wordLength = settings.getWordLength();
     }
 
     protected String[] comparingWords(String userWord, String answerWord) {

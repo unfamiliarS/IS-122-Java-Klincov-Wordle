@@ -15,11 +15,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.coursework.core.impl.Settings;
-import com.coursework.gui.impl.GUIWordle;
+import com.coursework.core.Wordle;
 import com.coursework.gui.impl.SceneLoader;
 
-public class GameController implements GUIWordle.WordSubmissionListener {
+public class GameController extends Wordle {
 
     @FXML private VBox labelRows;
     @FXML private HBox firstRow;
@@ -30,29 +29,16 @@ public class GameController implements GUIWordle.WordSubmissionListener {
     private List<HBox> letterRows;
     private int currentRow = 0;
     private int currentLetterIndex = 0;
+    private int currentAttempt = 0;
 
-    private Settings settings;
-    private GUIWordle wordleSession;
-    private int wordLength;
-    private int maxAttempts;
-
-    public GameController() {
-        try {
-            settings = Settings.getInstance();
-            wordLength = settings.getWordLength();
-            maxAttempts = settings.getAttempts();
-            wordleSession = new GUIWordle();
-            wordleSession.setWordSubmissionListener(this);
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public GameController() throws IOException {
+        super();
     }
-
+    
     @FXML
     public void initialize() {
         letterRows = new ArrayList<>();
-        for (int i = 0; i < maxAttempts; i++)
+        for (int i = 0; i < attempts; i++)
             letterRows.add((HBox) labelRows.getChildren().get(i));
         
         backButton.sceneProperty().addListener((obs, oldScene, newScene) -> {
@@ -60,6 +46,7 @@ public class GameController implements GUIWordle.WordSubmissionListener {
                 setupKeyboard();
             }
         });
+        System.out.println("Init GameController");
     }
 
     private void setupKeyboard() {
@@ -91,33 +78,28 @@ public class GameController implements GUIWordle.WordSubmissionListener {
             handleButtonPress(keyText);
         } else {
             switch (event.getCode()) {
-                case ENTER:
-                    handleButtonPress("ENTER");
-                    break;
-                case BACK_SPACE:
-                    handleButtonPress("⌫");
-                    break;
-                default:
-                    break;
+                case ENTER -> handleButtonPress("ENTER");
+                case BACK_SPACE -> handleButtonPress("⌫");
+                default -> {}
             }
         }
         event.consume();
     }
 
     private void handleButtonPress(String key) {
-        if (currentRow >= maxAttempts) return;
+        if (currentRow >= attempts) return;
 
         HBox currentLetterRow = letterRows.get(currentRow);
         
         if (key.matches("[A-Z]") && currentLetterIndex < wordLength) {
             // Добавление буквы
-            Label label = (Label) currentLetterRow.getChildren().get(currentLetterIndex);
+            var label = (Label) currentLetterRow.getChildren().get(currentLetterIndex);
             label.setText(key);
             currentLetterIndex++;
         } else if (key.equals("⌫") && currentLetterIndex > 0) {
             // Удаление буквы
             currentLetterIndex--;
-            Label label = (Label) currentLetterRow.getChildren().get(currentLetterIndex);
+            var label = (Label) currentLetterRow.getChildren().get(currentLetterIndex);
             label.setText(" ");
         } else if (key.equals("ENTER") && currentLetterIndex == wordLength) {
             // Обработка ввода слова
@@ -127,18 +109,44 @@ public class GameController implements GUIWordle.WordSubmissionListener {
 
     private void processWord() {
         HBox currentLetterRow = letterRows.get(currentRow);
-        StringBuilder word = new StringBuilder();
+        var word = new StringBuilder();
         
         for (int i = 0; i < wordLength; i++) {
-            Label label = (Label) currentLetterRow.getChildren().get(i);
+            var label = (Label) currentLetterRow.getChildren().get(i);
             word.append(label.getText());
         }
         
-        if (!wordleSession.submitWord(word.toString().toLowerCase())) {
+        if (!submitWord(word.toString())) {
             clearCurrentRow();
         }
     }
-    
+   
+    public boolean submitWord(String word) {
+        if (currentAttempt >= attempts)
+            return false;
+
+        word = word.toLowerCase();
+        
+        try {
+            if (!allWordsDictionary.isTheWordInTheDictionary(word)) {
+                onInvalidWord(word);
+                return false;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String[] result = comparingWords(word, answer);
+        
+        onWordSubmitted(result);
+
+        boolean won = word.equals(answer);
+        currentAttempt++;
+
+        if (won) onGameOver(won, answer);
+        return true;
+    }
+
     private void clearCurrentRow() {
         HBox currentLetterRow = letterRows.get(currentRow);
         for (Node node : currentLetterRow.getChildren()) {
@@ -149,7 +157,6 @@ public class GameController implements GUIWordle.WordSubmissionListener {
         currentLetterIndex = 0;
     }
     
-    @Override
     public void onWordSubmitted(String[] comparisonResult) {
         HBox currentLetterRow = letterRows.get(currentRow);
         colorLetters(currentLetterRow, comparisonResult);
@@ -158,13 +165,11 @@ public class GameController implements GUIWordle.WordSubmissionListener {
         currentLetterIndex = 0;
     }
     
-    @Override
     public void onInvalidWord(String word) {
         showAlert("Ошибка", "Слово \"" + word + "\" не найдено в словаре");
         clearCurrentRow();
     }
 
-    @Override
     public void onGameOver(boolean won, String answer) {
         String message = won ? "Поздравляем! Вы угадали слово!" 
                            : "Игра окончена. Загаданное слово: " + answer;

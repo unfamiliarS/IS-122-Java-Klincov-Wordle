@@ -20,8 +20,8 @@
     </Label>
     
     <HBox alignment="CENTER" spacing="20">
-        <Button fx:id="russianButton" onAction="#handleRussianButton" style="-fx-font-size: 18px;" text="Русский" />
-        <Button fx:id="englishButton" onAction="#handleEnglishButton" style="-fx-font-size: 18px;" text="English" />
+        <Button fx:id="russianButton" onAction="#handleLanguageButton" style="-fx-font-size: 18px;" text="Русский" />
+        <Button fx:id="englishButton" onAction="#handleLanguageButton" style="-fx-font-size: 18px;" text="English" />
     </HBox>
     
     <Button fx:id="backButton" onAction="#handleBackButton" style="-fx-font-size: 18px;" text="Back" />

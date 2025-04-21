@@ -1,6 +1,8 @@
 package com.coursework.gui.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -29,7 +31,7 @@ public class SettingsController implements Localizable {
         settings = Settings.getInstance();
         languageManager.registerLocalizable("settings", this);
         updateText(languageManager);
-        System.out.println("Init MenuController");
+        System.out.println("Init SettingsController");
     }
 
     @Override
@@ -48,12 +50,14 @@ public class SettingsController implements Localizable {
     }
 
     @FXML
-    private void handleRussianButton() {
-        settings.setLanguage(Languages.RUS);
+    private void handleLanguageButton(ActionEvent event) throws Exception {
+        String buttonId = ((Node) event.getSource()).getId();
+        
+        switch (buttonId) {
+            case "russianButton" -> settings.setLanguage(Languages.RUS);
+            case "englishButton" -> settings.setLanguage(Languages.ENG);
+            default -> throw new Exception("Language change error");
+        }
     }
 
-    @FXML
-    private void handleEnglishButton() {
-        settings.setLanguage(Languages.ENG);
-    }
 }
