@@ -57,9 +57,9 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
+                    <include>**/fxmls/**</include>
+                    <include>**/dictionaries/**</include>
                     <include>**/*.xml</include>
-                    <include>**/*.txt</include>
-                    <include>**/*.fxml</include>
                     <include>**/*.properties</include>
                 </includes>
             </resource>

@@ -1,7 +1,10 @@
 package com.coursework.gui.controllers;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,9 +16,9 @@ import com.coursework.gui.impl.SceneLoader;
 public class MenuController implements Localizable {
 
     @FXML private Button playButton;
-    @FXML private Button settingsButton;
-    @FXML private Button exitButton;
+    @FXML private Button languagesButton;
     @FXML private Button rulesButton;
+    @FXML private Button exitButton;
     
     private SceneLoader sceneLoader;
 
@@ -28,9 +31,8 @@ public class MenuController implements Localizable {
     @Override
     public void updateText(LanguageManager languageManager) {
         playButton.setText(languageManager.getText("menu.play"));
-        settingsButton.setText(languageManager.getText("menu.settings"));
+        languagesButton.setText(languageManager.getText("menu.settings"));
         exitButton.setText(languageManager.getText("menu.exit"));
-        rulesButton.setText(languageManager.getText("menu.rules"));
     }
 
     @FXML
@@ -40,8 +42,12 @@ public class MenuController implements Localizable {
     }
 
     @FXML
-    private void handleSettingsButton() throws IOException {
-        Stage stage = (Stage) settingsButton.getScene().getWindow();
+    private void handleRulesButton() throws IOException {
+    }
+
+    @FXML
+    private void handleLanguagesButton() throws IOException {
+        Stage stage = (Stage) languagesButton.getScene().getWindow();
         stage.setScene(sceneLoader.settings());
     }
 
@@ -49,5 +55,12 @@ public class MenuController implements Localizable {
     private void handleExitButton() {
         Stage stage = (Stage) exitButton.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    private void handleESCPress(KeyEvent event) {
+        if (event.getCode() == KeyCode.ESCAPE) {
+            Platform.exit();
+        }
     }
 }

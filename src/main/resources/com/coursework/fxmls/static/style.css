@@ -1,0 +1,63 @@
+@font-face {
+    src: url("fonts/Samsung_Myanmar_Regular.ttf");
+}
+  
+* {
+    -fx-font-family: "SamsungMyanmar";
+}
+
+.root {
+    -fx-background-image: url('images/background.png');
+    -fx-background-size: cover;
+}
+
+.title-lbl {
+    -fx-font-size: 200px;
+}
+
+.subtitle-lbl {
+    -fx-font-size: 36px;
+}
+
+.btn {
+    -fx-border-width: 3px;
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-border-style: solid;
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-background-radius: 32px;
+    -fx-border-radius: 32px;
+    -fx-padding: 0 2 0 2;
+    -fx-font-size: 36px;
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-transition: all 0.3s ease;
+}
+
+.btn:focused, .btn:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.play-btn {
+    -fx-pref-width: 168px;
+    -fx-pref-height: 61px;
+}
+
+.howToPlay-btn {
+    -fx-pref-width: 273px;
+    -fx-pref-height: 61px;
+}
+
+.languages-btn {
+    -fx-pref-width: 241px;
+    -fx-pref-height: 61px;
+}
+
+.exit-btn {
+    -fx-pref-width: 150px;
+    -fx-pref-height: 61px;
+}
+
+.strawberries {
+    -fx-background-image: url('images/strawberry.png');
+}
