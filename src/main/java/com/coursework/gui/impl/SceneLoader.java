@@ -4,9 +4,9 @@ import java.io.IOException;
 
 import com.coursework.core.UserInterface;
 import com.coursework.core.impl.languages.LanguageManager;
-import com.coursework.gui.controllers.GameController;
-import com.coursework.gui.controllers.MenuController;
-import com.coursework.gui.controllers.SettingsController;
+import com.coursework.gui.impl.controllers.GameController;
+import com.coursework.gui.impl.controllers.MenuController;
+import com.coursework.gui.impl.controllers.SettingsController;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

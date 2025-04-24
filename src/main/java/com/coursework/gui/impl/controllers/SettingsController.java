@@ -1,4 +1,4 @@
-package com.coursework.gui.controllers;
+package com.coursework.gui.impl.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -61,3 +61,74 @@
 .strawberries {
     -fx-background-image: url('images/strawberry.png');
 }
+
+.user-word-cells {
+    -fx-font-size: 36px;
+    -fx-border-width: 3px;
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-border-style: solid;
+    -fx-border-radius: 9px;
+    -fx-background-radius: 9px;
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-pref-width: 84px;
+    -fx-pref-height: 90px;
+}
+
+.user-word-green {
+    -fx-background-color: rgba(184,255,211, 0.5);
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+.user-word-yellow {
+    -fx-background-color: rgba(247,255,184, 0.5);
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+.user-word-pink {
+    -fx-background-color: rgba(255, 216, 247, 0.5);
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+.keyboard, .keyboard-button-green, .keyboard-button-yellow, .keyboard-button-pink {
+    -fx-font-size: 36px;
+    -fx-border-width: 1px;
+    -fx-border-color: rgb(228, 228, 228);
+    -fx-border-style: solid;
+    -fx-border-radius: 9px;
+    -fx-background-radius: 9px;
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-pref-width: 92px;
+    -fx-pref-height: 92px;
+    -fx-alignment: CENTER;
+}
+
+.keyboard-enter-del {
+    -fx-background-color:#e684ab;
+    -fx-border-width: 0px;
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-pref-width: 137px;
+    -fx-pref-height: 92px;
+}
+
+.keyboard-button-green, .keyboard-button-yellow, .keyboard-button-pink {
+    -fx-border-width: 3px;
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+.keyboard-button-green {
+    -fx-background-color: rgba(184, 255, 211, 0.5);
+}
+
+.keyboard-button-yellow {
+    -fx-background-color: rgba(247, 255, 184, 0.5);
+}
+
+.keyboard-button-pink {
+    -fx-background-color: rgba(255, 216, 247, 0.5);
+}

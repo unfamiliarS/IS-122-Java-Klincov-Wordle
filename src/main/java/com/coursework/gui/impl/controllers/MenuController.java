@@ -1,26 +1,43 @@
-package com.coursework.gui.controllers;
+package com.coursework.gui.impl.controllers;
 
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
 import com.coursework.core.impl.languages.LanguageManager;
 import com.coursework.core.impl.languages.Localizable;
 import com.coursework.gui.impl.SceneLoader;
+import com.coursework.gui.impl.StrawberryAnimator;
 
 public class MenuController implements Localizable {
 
+    @FXML private AnchorPane gamePane;
     @FXML private Button playButton;
     @FXML private Button languagesButton;
     @FXML private Button rulesButton;
     @FXML private Button exitButton;
     
     private SceneLoader sceneLoader;
+
+    @FXML
+    public void initialize() {
+        StrawberryAnimator.animateAllStrawberries(gamePane);
+    }
 
     public void init(LanguageManager languageManager, SceneLoader sceneLoader) {
         this.sceneLoader = sceneLoader;
@@ -34,7 +51,7 @@ public class MenuController implements Localizable {
         languagesButton.setText(languageManager.getText("menu.settings"));
         exitButton.setText(languageManager.getText("menu.exit"));
     }
-
+    
     @FXML
     private void handlePlayButton() throws IOException {
         Stage stage = (Stage) playButton.getScene().getWindow();
@@ -53,8 +70,7 @@ public class MenuController implements Localizable {
 
     @FXML
     private void handleExitButton() {
-        Stage stage = (Stage) exitButton.getScene().getWindow();
-        stage.close();
+        Platform.exit();
     }
 
     @FXML

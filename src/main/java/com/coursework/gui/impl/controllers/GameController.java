@@ -1,15 +1,22 @@
-package com.coursework.gui.controllers;
+package com.coursework.gui.impl.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -118,12 +125,15 @@ public class GameController extends Wordle implements Localizable {
         String keyId = switch (event.getCode()) {
             case ENTER -> "ENTER_BTN";
             case BACK_SPACE -> "DELETE_BTN";
+            case ESCAPE -> "ESCAPE";
             default -> event.getText().toUpperCase().matches("[A-ZА-Я]") 
                         ? "KEY_" + event.getText().toUpperCase() 
                         : null;
         };
         
         if (keyId != null) {
+            if (keyId.equals("ESCAPE")) 
+                Platform.exit();
             handleButtonPress(keyId);
         }
         event.consume();
@@ -172,7 +182,7 @@ public class GameController extends Wordle implements Localizable {
         
         try {
             if (!allWordsDictionary.isTheWordInTheDictionary(word)) {
-                onInvalidWord(word);
+                onInvalidWord();
                 return false;
             }
         } catch (IOException e) {
@@ -210,13 +220,30 @@ public class GameController extends Wordle implements Localizable {
         currentLetterIndex = 0;
     }
     
-    public void onInvalidWord(String word) {
-        String title = languageManager.getText("gameplay.alerts.title.error");
-        String message = String.format(
-            languageManager.getText("gameplay.alerts.invalidWord"), 
-            word
-        );
-        showAlert(title, message, this::clearCurrentRow);
+    public void onInvalidWord() {
+        animateError(currentRow);
+    
+        PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
+        pause.setOnFinished(event -> clearCurrentRow());
+        pause.play();
+    }
+
+    private void animateError(int rowIndex) {
+        HBox currentLetterRow = letterRows.get(rowIndex);
+        for (Node node : currentLetterRow.getChildren()) {
+            if (node instanceof Label) {
+                Label label = (Label) node;
+                Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.millis(0), new KeyValue(label.rotateProperty(), 0)),
+                    new KeyFrame(Duration.millis(50), new KeyValue(label.rotateProperty(), 5)),
+                    new KeyFrame(Duration.millis(100), new KeyValue(label.rotateProperty(), 0)),
+                    new KeyFrame(Duration.millis(175), new KeyValue(label.rotateProperty(), -5)),
+                    new KeyFrame(Duration.millis(250), new KeyValue(label.rotateProperty(), 0))
+                );
+                timeline.setCycleCount(2);
+                timeline.play();
+            }
+        }
     }
 
     public void onGameOver(boolean won) {
@@ -236,30 +263,21 @@ public class GameController extends Wordle implements Localizable {
             String text = coloredChar.replaceAll("\u001B\\[[0-9;]*m", "").toUpperCase();
             
             if (coloredChar.contains("\u001B[32m")) {
-                label.setStyle("-fx-background-color: #6aaa64; -fx-text-fill: white; " +
-                              "-fx-border-color: #6aaa64; -fx-border-width: 2px;");
-                colorKeyboardButton(text, "#6aaa64");
-            } 
-            else if (coloredChar.contains("\u001B[33m")) {
-                label.setStyle("-fx-background-color: #c9b458; -fx-text-fill: white; " +
-                              "-fx-border-color: #c9b458; -fx-border-width: 2px;");
-                colorKeyboardButton(text, "#c9b458");
-            } 
-            else {
-                label.setStyle("-fx-background-color: #787c7e; -fx-text-fill: white; " +
-                              "-fx-border-color: #787c7e; -fx-border-width: 2px;");
-                colorKeyboardButton(text, "#787c7e");
+                label.getStyleClass().add("user-word-green");
+                searchAndColorButtonInKeyboard(currentKeyboard, text, "keyboard-button-green");
+            } else if (coloredChar.contains("\u001B[33m")) {
+                label.getStyleClass().add("user-word-yellow");
+                searchAndColorButtonInKeyboard(currentKeyboard, text, "keyboard-button-yellow");
+            } else {
+                label.getStyleClass().add("user-word-pink");
+                searchAndColorButtonInKeyboard(currentKeyboard, text, "keyboard-button-pink");
             }
             
             label.setText(text);
         }
     }
     
-    private void colorKeyboardButton(String letter, String color) {
-        searchAndColorButtonInKeyboard(currentKeyboard, letter, color);
-    }
-    
-    private void searchAndColorButtonInKeyboard(VBox keyboard, String letter, String color) {
+    private void searchAndColorButtonInKeyboard(VBox keyboard, String letter, String colorClass) {
         keyboard.getChildren().stream()
             .filter(row -> row instanceof HBox)
             .flatMap(row -> ((HBox) row).getChildren().stream())
@@ -267,12 +285,13 @@ public class GameController extends Wordle implements Localizable {
             .map(node -> (Button) node)
             .filter(button -> button.getText().equalsIgnoreCase(letter))
             .forEach(button -> {
-                String currentStyle = button.getStyle();
-                if (!currentStyle.contains("#6aaa64")) {
-                    button.setStyle(currentStyle + " -fx-background-color: " + color + ";");
+                if (!button.getStyleClass().contains("keyboard-button-green")) {
+                    button.getStyleClass().clear();
+                    button.getStyleClass().add(colorClass);
                 }
             });
     }
+    
 
     private void showAlert(String title, String message, Runnable afterHideAction) {
         Platform.runLater(() -> {

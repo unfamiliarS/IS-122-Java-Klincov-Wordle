@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -7,378 +8,211 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="900.0" maxWidth="600.0" minHeight="800.0" minWidth="500.0" prefHeight="800.0" prefWidth="550.0" spacing="10" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coursework.gui.controllers.GameController">
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="800.0" minWidth="500.0" prefHeight="1440.0" prefWidth="2560.0" spacing="10" style="-fx-background-color: white;" stylesheets="@static/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coursework.gui.impl.controllers.GameController">
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-   <VBox fx:id="letterLabelsRows" prefHeight="305.0" prefWidth="510.0" spacing="2" style="-fx-padding: 5;">
-      <children>
-          <!-- Поле для букв -->
-          <HBox alignment="CENTER" prefHeight="52.0" prefWidth="450.0" spacing="5">
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-          </HBox>
-            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="450.0" spacing="5">
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-          </HBox>
-          <HBox alignment="CENTER" prefHeight="87.0" prefWidth="450.0" spacing="5">
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-          </HBox>
-          <HBox alignment="CENTER" prefHeight="111.0" prefWidth="450.0" spacing="5">
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-          </HBox>
-          <HBox alignment="CENTER" prefHeight="130.0" prefWidth="450.0" spacing="5">
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-          </HBox>
-          <HBox alignment="CENTER" prefHeight="0.0" prefWidth="450.0" spacing="5">
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-              <Label alignment="CENTER" minHeight="60.0" minWidth="60.0" text=" ">
-                  <font>
-                      <Font size="36" />
-                  </font>
-                  <style>
-                -fx-border-color: gray;
-                -fx-border-width: 2px;
-            </style>
-              </Label>
-          </HBox>
-      </children>
-      <VBox.margin>
-         <Insets bottom="90.0" top="50.0" />
-      </VBox.margin>
+    <VBox fx:id="letterLabelsRows" prefHeight="612.0" prefWidth="2520.0" spacing="2" style="-fx-spacing: 9;">
+        <HBox alignment="CENTER" style="-fx-spacing: 9;">
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+        </HBox>
+        <HBox alignment="CENTER" style="-fx-spacing: 9;">
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+        </HBox>
+        <HBox alignment="CENTER" style="-fx-spacing: 9;">
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+        </HBox>
+        <HBox alignment="CENTER" style="-fx-spacing: 9;">
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+        </HBox>
+        <HBox alignment="CENTER" style="-fx-spacing: 9;">
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+        </HBox>
+        <HBox alignment="CENTER" style="-fx-spacing: 9;">
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+        </HBox>
+        <VBox.margin>
+            <Insets bottom="30.0" top="80.0" />
+        </VBox.margin>
    </VBox>
     
-    <VBox fx:id="keyboardContainer" alignment="CENTER" spacing="3">
-        <VBox fx:id="engKeyboard" alignment="CENTER" spacing="3" visible="false" managed="false">
-            <HBox fx:id="firstRow" alignment="CENTER" spacing="3">
-                <Button fx:id="KEY_Q" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="Q" />
-                <Button fx:id="KEY_W" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="W" />
-                <Button fx:id="KEY_E" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="E" />
-                <Button fx:id="KEY_R" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="R" />
-                <Button fx:id="KEY_T" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="T" />
-                <Button fx:id="KEY_Y" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="Y" />
-                <Button fx:id="KEY_U" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="U" />
-                <Button fx:id="KEY_I" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="I" />
-                <Button fx:id="KEY_O" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="O" />
-                <Button fx:id="KEY_P" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="P" />
+    <VBox fx:id="keyboardContainer" alignment="CENTER" prefHeight="462.0" prefWidth="2520.0" spacing="3">
+        <VBox fx:id="engKeyboard" alignment="CENTER" managed="false" prefHeight="371.0" prefWidth="2520.0" spacing="3" style="-fx-spacing: 9;" visible="false">
+            <HBox fx:id="firstRow" alignment="CENTER" prefHeight="95.0" prefWidth="2520.0" spacing="3" style="-fx-spacing: 9;">
+                <Button fx:id="KEY_Q" styleClass="keyboard" text="Q" />
+                <Button fx:id="KEY_W" styleClass="keyboard" text="W" />
+                <Button fx:id="KEY_E" styleClass="keyboard" text="E" />
+                <Button fx:id="KEY_R" styleClass="keyboard" text="R" />
+                <Button fx:id="KEY_T" styleClass="keyboard" text="T" />
+                <Button fx:id="KEY_Y" styleClass="keyboard" text="Y" />
+                <Button fx:id="KEY_U" styleClass="keyboard" text="U" />
+                <Button fx:id="KEY_I" styleClass="keyboard" text="I" />
+                <Button fx:id="KEY_O" styleClass="keyboard" text="O" />
+                <Button fx:id="KEY_P" styleClass="keyboard" text="P" />
             </HBox>
-            <HBox fx:id="secondRow" alignment="CENTER" spacing="3">
-                <Button fx:id="KEY_A" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="A" />
-                <Button fx:id="KEY_S" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="S" />
-                <Button fx:id="KEY_D" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="D" />
-                <Button fx:id="KEY_F" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="F" />
-                <Button fx:id="KEY_G" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="G" />
-                <Button fx:id="KEY_H" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="H" />
-                <Button fx:id="KEY_J" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="J" />
-                <Button fx:id="KEY_K" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="K" />
-                <Button fx:id="KEY_L" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="L" />
+            <HBox fx:id="secondRow" alignment="CENTER" prefWidth="2520.0" spacing="3" style="-fx-spacing: 9;">
+                <Button fx:id="KEY_A" styleClass="keyboard" text="A" />
+                <Button fx:id="KEY_S" styleClass="keyboard" text="S" />
+                <Button fx:id="KEY_D" styleClass="keyboard" text="D" />
+                <Button fx:id="KEY_F" styleClass="keyboard" text="F" />
+                <Button fx:id="KEY_G" styleClass="keyboard" text="G" />
+                <Button fx:id="KEY_H" styleClass="keyboard" text="H" />
+                <Button fx:id="KEY_J" styleClass="keyboard" text="J" />
+                <Button fx:id="KEY_K" styleClass="keyboard" text="K" />
+                <Button fx:id="KEY_L" styleClass="keyboard" text="L" />
             </HBox>
-            <HBox fx:id="thirdRow" alignment="CENTER" spacing="3">
-                <Button fx:id="ENTER_BTN" style="-fx-font-size: 14px; -fx-min-width: 65px; -fx-min-height: 55px; -fx-background-radius: 3;" text="ENTER" />
-                <Button fx:id="KEY_Z" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="Z" />
-                <Button fx:id="KEY_X" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="X" />
-                <Button fx:id="KEY_C" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="C" />
-                <Button fx:id="KEY_V" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="V" />
-                <Button fx:id="KEY_B" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="B" />
-                <Button fx:id="KEY_N" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="N" />
-                <Button fx:id="KEY_M" style="-fx-font-size: 18px; -fx-min-width: 45px; -fx-min-height: 55px; -fx-background-radius: 3;" text="M" />
-                <Button fx:id="DELETE_BTN" style="-fx-font-size: 18px; -fx-min-width: 65px; -fx-min-height: 55px; -fx-background-radius: 3;" text="⌫" />
+            <HBox fx:id="thirdRow" alignment="CENTER" spacing="3" style="-fx-spacing: 9;">
+                <Button fx:id="ENTER_BTN" text="Enter">
+               <styleClass>
+                  <String fx:value="keyboard" />
+                  <String fx:value="keyboard-enter-del" />
+               </styleClass></Button>
+                <Button fx:id="KEY_Z" styleClass="keyboard" text="Z" />
+                <Button fx:id="KEY_X" styleClass="keyboard" text="X" />
+                <Button fx:id="KEY_C" styleClass="keyboard" text="C" />
+                <Button fx:id="KEY_V" styleClass="keyboard" text="V" />
+                <Button fx:id="KEY_B" styleClass="keyboard" text="B" />
+                <Button fx:id="KEY_N" styleClass="keyboard" text="N" />
+                <Button fx:id="KEY_M" styleClass="keyboard" text="M" />
+                <Button fx:id="DELETE_BTN" text="Delete">
+               <styleClass>
+                  <String fx:value="keyboard" />
+                  <String fx:value="keyboard-enter-del" />
+               </styleClass></Button>
             </HBox>
         </VBox>
-        <VBox fx:id="rusKeyboard" alignment="CENTER" spacing="3" visible="false" managed="false">
-            <HBox fx:id="firstRow" alignment="CENTER" spacing="3">
-                <Button fx:id="KEY_Й" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Й" />
-                <Button fx:id="KEY_Ц" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ц" />
-                <Button fx:id="KEY_У" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="У" />
-                <Button fx:id="KEY_К" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="К" />
-                <Button fx:id="KEY_Е" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Е" />
-                <Button fx:id="KEY_Н" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Н" />
-                <Button fx:id="KEY_Г" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Г" />
-                <Button fx:id="KEY_Ш" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ш" />
-                <Button fx:id="KEY_Щ" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Щ" />
-                <Button fx:id="KEY_З" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="З" />
-                <Button fx:id="KEY_Х" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Х" />
-                <Button fx:id="KEY_Ъ" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ъ" />
+        <VBox fx:id="rusKeyboard" alignment="CENTER" managed="false" spacing="3" style="-fx-spacing: 9;" visible="false">
+            <HBox fx:id="firstRow" alignment="CENTER" spacing="3" style="-fx-spacing: 9;">
+                <Button fx:id="KEY_Й" styleClass="keyboard" text="Й" />
+                <Button fx:id="KEY_Ц" styleClass="keyboard" text="Ц" />
+                <Button fx:id="KEY_У" styleClass="keyboard" text="У" />
+                <Button fx:id="KEY_К" styleClass="keyboard" text="К" />
+                <Button fx:id="KEY_Е" styleClass="keyboard" text="Е" />
+                <Button fx:id="KEY_Н" styleClass="keyboard" text="Н" />
+                <Button fx:id="KEY_Г" styleClass="keyboard" text="Г" />
+                <Button fx:id="KEY_Ш" styleClass="keyboard" text="Ш" />
+                <Button fx:id="KEY_Щ" styleClass="keyboard" text="Щ" />
+                <Button fx:id="KEY_З" styleClass="keyboard" text="З" />
+                <Button fx:id="KEY_Х" styleClass="keyboard" text="Х" />
+                <Button fx:id="KEY_Ъ" styleClass="keyboard" text="Ъ" />
             </HBox>
-            <HBox fx:id="secondRow" alignment="CENTER" spacing="3">
-                <Button fx:id="KEY_Ф" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ф" />
-                <Button fx:id="KEY_Ы" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ы" />
-                <Button fx:id="KEY_В" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="В" />
-                <Button fx:id="KEY_А" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="А" />
-                <Button fx:id="KEY_П" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="П" />
-                <Button fx:id="KEY_Р" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Р" />
-                <Button fx:id="KEY_О" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="О" />
-                <Button fx:id="KEY_Л" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Л" />
-                <Button fx:id="KEY_Д" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Д" />
-                <Button fx:id="KEY_Ж" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ж" />
-                <Button fx:id="KEY_Э" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Э" />
+            <HBox fx:id="secondRow" alignment="CENTER" spacing="3" style="-fx-spacing: 9;">
+                <Button fx:id="KEY_Ф" styleClass="keyboard" text="Ф" />
+                <Button fx:id="KEY_Ы" styleClass="keyboard" text="Ы" />
+                <Button fx:id="KEY_В" styleClass="keyboard" text="В" />
+                <Button fx:id="KEY_А" styleClass="keyboard" text="А" />
+                <Button fx:id="KEY_П" styleClass="keyboard" text="П" />
+                <Button fx:id="KEY_Р" styleClass="keyboard" text="Р" />
+                <Button fx:id="KEY_О" styleClass="keyboard" text="О" />
+                <Button fx:id="KEY_Л" styleClass="keyboard" text="Л" />
+                <Button fx:id="KEY_Д" styleClass="keyboard" text="Д" />
+                <Button fx:id="KEY_Ж" styleClass="keyboard" text="Ж" />
+                <Button fx:id="KEY_Э" styleClass="keyboard" text="Э" />
             </HBox>
-            <HBox fx:id="thirdRow" alignment="CENTER" spacing="3">
-                <Button fx:id="ENTER_BTN" style="-fx-font-size: 14px; -fx-min-width: 65px; -fx-min-height: 50px; -fx-background-radius: 3;" text="ВВОД" />
-                <Button fx:id="KEY_Я" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Я" />
-                <Button fx:id="KEY_Ч" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ч" />
-                <Button fx:id="KEY_С" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="С" />
-                <Button fx:id="KEY_М" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="М" />
-                <Button fx:id="KEY_И" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="И" />
-                <Button fx:id="KEY_Т" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Т" />
-                <Button fx:id="KEY_Ь" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ь" />
-                <Button fx:id="KEY_Б" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Б" />
-                <Button fx:id="KEY_Ю" style="-fx-font-size: 18px; -fx-min-width: 38px; -fx-min-height: 50px; -fx-background-radius: 3;" text="Ю" />
-                <Button fx:id="DELETE_BTN" style="-fx-font-size: 18px; -fx-min-width: 65px; -fx-min-height: 50px; -fx-background-radius: 3;" text="⌫" />
+            <HBox fx:id="thirdRow" alignment="CENTER" spacing="3" style="-fx-spacing: 9;">
+                <Button fx:id="ENTER_BTN" text="Ввод">
+               <styleClass>
+                  <String fx:value="keyboard" />
+                  <String fx:value="keyboard-enter-del" />
+               </styleClass></Button>
+                <Button fx:id="KEY_Я" styleClass="keyboard" text="Я" />
+                <Button fx:id="KEY_Ч" styleClass="keyboard" text="Ч" />
+                <Button fx:id="KEY_С" styleClass="keyboard" text="С" />
+                <Button fx:id="KEY_М" styleClass="keyboard" text="М" />
+                <Button fx:id="KEY_И" styleClass="keyboard" text="И" />
+                <Button fx:id="KEY_Т" styleClass="keyboard" text="Т" />
+                <Button fx:id="KEY_Ь" styleClass="keyboard" text="Ь" />
+                <Button fx:id="KEY_Б" styleClass="keyboard" text="Б" />
+                <Button fx:id="KEY_Ю" styleClass="keyboard" text="Ю" />
+                <Button fx:id="DELETE_BTN" style="-fx-font-size: 24;" text="Удалить">
+               <styleClass>
+                  <String fx:value="keyboard-enter-del" />
+                  <String fx:value="keyboard" />
+               </styleClass></Button>
             </HBox>
         </VBox>
 
@@ -387,9 +221,13 @@
         </VBox.margin>
     </VBox>
     
-    <Button fx:id="backButton" onAction="#handleBackButton" text="Menu">
+    <Button fx:id="backButton" onAction="#handleBackButton" style="-fx-font-size: 28;" text="Back to menu">
         <font>
             <Font size="18" />
         </font>
+      <styleClass>
+         <String fx:value="btn" />
+         <String fx:value="howToPlay-btn" />
+      </styleClass>
     </Button>
 </VBox>
