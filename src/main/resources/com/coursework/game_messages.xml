@@ -3,10 +3,10 @@
     <language id="eng">
         <menu>
             <buttons>
-                <play>Play</play>
-                <settings>Settings</settings>
-                <exit>Exit</exit>
-                <rules>?</rules>
+                <play>play</play>
+                <rules>how to play</rules>
+                <settings>languages</settings>
+                <exit>exit</exit>
             </buttons>
         </menu>
         <settings>
@@ -40,10 +40,10 @@
         <language id="rus">
         <menu>
             <buttons>
-                <play>Играть</play>
-                <settings>Настройки</settings>
-                <exit>Выход</exit>
-                <rules>?</rules>
+                <play>играть</play>
+                <rules>как играть</rules>
+                <settings>языки</settings>
+                <exit>выйти</exit>
             </buttons>
         </menu>
         <settings>

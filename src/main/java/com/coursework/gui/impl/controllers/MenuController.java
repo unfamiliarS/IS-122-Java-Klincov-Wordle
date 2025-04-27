@@ -1,28 +1,19 @@
 package com.coursework.gui.impl.controllers;
 
-import javafx.animation.Animation;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 
 import com.coursework.core.impl.languages.LanguageManager;
 import com.coursework.core.impl.languages.Localizable;
 import com.coursework.gui.impl.SceneLoader;
-import com.coursework.gui.impl.StrawberryAnimator;
+import com.coursework.gui.impl.Animations;
 
 public class MenuController implements Localizable {
 
@@ -36,7 +27,7 @@ public class MenuController implements Localizable {
 
     @FXML
     public void initialize() {
-        StrawberryAnimator.animateAllStrawberries(gamePane);
+        Animations.animateAllStrawberries(gamePane);
     }
 
     public void init(LanguageManager languageManager, SceneLoader sceneLoader) {

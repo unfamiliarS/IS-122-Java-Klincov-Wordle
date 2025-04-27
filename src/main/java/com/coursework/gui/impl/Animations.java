@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
-public class StrawberryAnimator {
+public class Animations {
     
     public static void animateStrawberry(ImageView strawberry) {
         double rotation = strawberry.getRotate();
@@ -47,7 +47,7 @@ public class StrawberryAnimator {
             .map(node -> (ImageView) node)
             .filter(iv -> iv.getImage() != null && 
                   iv.getImage().getUrl().contains("strawberry"))
-            .forEach(StrawberryAnimator::animateStrawberry);
+            .forEach(Animations::animateStrawberry);
     }
     
     public static void stopAnimation(ImageView strawberry) {

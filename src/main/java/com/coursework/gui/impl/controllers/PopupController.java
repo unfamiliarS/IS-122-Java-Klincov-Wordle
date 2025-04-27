@@ -3,7 +3,7 @@ package com.coursework.gui.impl.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.coursework.gui.impl.StrawberryAnimator;
+import com.coursework.gui.impl.Animations;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -30,7 +30,7 @@ public class PopupController {
 
     @FXML
     public void initialize() {
-        StrawberryAnimator.animateAllStrawberries(mainPane);
+        Animations.animateAllStrawberries(mainPane);
     }
 
     public void setAfterHideAction(String afterHideActionName, Runnable afterHideAction) {
