@@ -30,6 +30,8 @@
     -fx-font-size: 36px;
     -fx-scale-x: 1;
     -fx-scale-y: 1;
+    -fx-pref-height: 61px;
+    -fx-alignment: CENTER;
     -fx-transition: all 0.3s ease;
 }
 
@@ -40,22 +42,23 @@
 
 .play-btn {
     -fx-pref-width: 168px;
-    -fx-pref-height: 61px;
 }
 
 .howToPlay-btn {
     -fx-pref-width: 273px;
-    -fx-pref-height: 61px;
 }
 
 .languages-btn {
     -fx-pref-width: 241px;
-    -fx-pref-height: 61px;
 }
 
 .exit-btn {
     -fx-pref-width: 150px;
-    -fx-pref-height: 61px;
+}
+
+.congrats-btns {
+    -fx-pref-width: 229px;
+    -fx-font-size: 36px;
 }
 
 .strawberries {
@@ -132,3 +135,4 @@
 .keyboard-button-pink {
     -fx-background-color: rgba(255, 216, 247, 0.5);
 }
+  

@@ -3,6 +3,7 @@ package com.coursework.gui.impl;
 import java.io.IOException;
 
 import com.coursework.core.UserInterface;
+import com.coursework.core.UserInterfaceWL;
 import com.coursework.core.impl.languages.LanguageManager;
 import com.coursework.gui.impl.controllers.GameController;
 import com.coursework.gui.impl.controllers.MenuController;
@@ -12,7 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-public class SceneLoader implements UserInterface<Scene> {
+public class SceneLoader implements UserInterface<Scene>, UserInterfaceWL<FXMLLoader> {
 
     private final LanguageManager languageManager;
 
@@ -49,5 +50,14 @@ public class SceneLoader implements UserInterface<Scene> {
         controller.init(languageManager, this);
         
         return new Scene(root);
+    }
+
+    public FXMLLoader win() throws IOException {
+        return new FXMLLoader(getClass().getResource("/com/coursework/fxmls/win.fxml"));
+    }
+
+    @Override
+    public FXMLLoader lose() throws IOException {
+        return new FXMLLoader(getClass().getResource("/com/coursework/fxmls/lose.fxml"));
     }
 }

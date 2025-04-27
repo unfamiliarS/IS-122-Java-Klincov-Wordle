@@ -4,18 +4,20 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -247,13 +249,11 @@ public class GameController extends Wordle implements Localizable {
     }
 
     public void onGameOver(boolean won) {
-        String title = languageManager.getText("gameplay.alerts.title.gameOver");
-        String message = won 
-            ? languageManager.getText("gameplay.alerts.gameOver.won") 
-            : String.format(
-                languageManager.getText("gameplay.alerts.gameOver.lost"), 
-                answer);
-        showAlert(title, message, this::handleBackButton);
+        if (won) {
+            showWinMessage();
+            return;
+        }
+        showLoseMessage();
     }
 
     private void colorLetters(HBox row, String[] coloredResult) {
@@ -273,7 +273,7 @@ public class GameController extends Wordle implements Localizable {
                 searchAndColorButtonInKeyboard(currentKeyboard, text, "keyboard-button-pink");
             }
             
-            label.setText(text);
+            label.setText(text);            
         }
     }
     
@@ -291,22 +291,82 @@ public class GameController extends Wordle implements Localizable {
                 }
             });
     }
-    
 
-    private void showAlert(String title, String message, Runnable afterHideAction) {
-        Platform.runLater(() -> {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle(title);
-            alert.setHeaderText(message);
-            
-            alert.setOnHidden(event -> {
-                if (afterHideAction != null) {
-                    afterHideAction.run();
+    private void showWinMessage() {
+        try {
+            FXMLLoader loader = sceneLoader.win();
+            Parent root = loader.load();
+            PopupController controller = loader.getController();
+            controller.setAfterHideAction("menu", this::handleBackButton);
+            controller.setAfterHideAction("restart", this::restartGame);
+    
+            Stage popupStage = new Stage();
+            popupStage.initModality(Modality.WINDOW_MODAL);
+            popupStage.initStyle(StageStyle.UNDECORATED);
+            popupStage.initOwner(backButton.getScene().getWindow());
+            popupStage.setScene(new Scene(root));
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showLoseMessage() {
+        try {
+            FXMLLoader loader = sceneLoader.lose();
+            Parent root = loader.load();
+            PopupController controller = loader.getController();
+            controller.setAfterHideAction("menu", this::handleBackButton);
+            controller.setAfterHideAction("restart", this::restartGame);
+    
+            Stage popupStage = new Stage();
+            popupStage.initModality(Modality.WINDOW_MODAL);
+            popupStage.initStyle(StageStyle.UNDECORATED);
+            popupStage.initOwner(backButton.getScene().getWindow());
+            popupStage.setScene(new Scene(root));
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void restartGame() {
+        currentRow = 0;
+        currentLetterIndex = 0;
+        currentAttempt = 0;
+    
+        for (HBox row : letterRows) {
+            for (Node node : row.getChildren()) {
+                if (node instanceof Label) {
+                    ((Label) node).setText(" ");
+                    ((Label) node).getStyleClass().clear();
+                    ((Label) node).getStyleClass().add("user-word-cells");
                 }
-            });
-            
-            alert.showAndWait();
-        });
+            }
+        }
+    
+        for (Node row : currentKeyboard.getChildren()) {
+            if (row instanceof HBox keyboardRow) {
+                for (Node node : keyboardRow.getChildren()) {
+                    if (node instanceof Button button) {
+                        String buttonID = button.getId();
+                        if (buttonID.equals("ENTER_BTN") || buttonID.equals("DELETE_BTN"))
+                            continue;
+                        button.getStyleClass().clear();
+                        button.getStyleClass().add("keyboard");
+                    }
+                }
+            }
+        }
+    
+        try {
+            answer = settings.getAnswerDictionary().getRandomWord().toLowerCase();
+            System.out.println("New answer word: " + answer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
