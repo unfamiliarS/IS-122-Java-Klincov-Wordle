@@ -12,6 +12,7 @@ import com.coursework.gui.impl.controllers.SettingsController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 
 public class SceneLoader implements UserInterface<Scene>, UserInterfaceWL<FXMLLoader> {
 
@@ -39,7 +40,7 @@ public class SceneLoader implements UserInterface<Scene>, UserInterfaceWL<FXMLLo
         SettingsController controller = loader.getController();
         controller.init(languageManager, this);
         
-        return new Scene(root);
+        return new Scene(root, Color.TRANSPARENT);
     }
 
     public Scene gameplay(String... keyword) throws IOException {

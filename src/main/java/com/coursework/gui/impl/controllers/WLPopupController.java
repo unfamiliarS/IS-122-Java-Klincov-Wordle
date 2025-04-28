@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class PopupController {
+public class WLPopupController {
 
     @FXML
     private Label titleLabel;

@@ -18,10 +18,9 @@ import com.coursework.gui.impl.SceneLoader;
 public class SettingsController implements Localizable {
 
     @FXML private Label mainSettingsLabel;
-    @FXML private Label languageLabel;
     @FXML private Button russianButton;
     @FXML private Button englishButton;
-    @FXML private Button backButton;
+    @FXML private Button closeButton;
     
     private SceneLoader sceneLoader;
     private Settings settings;
@@ -37,16 +36,14 @@ public class SettingsController implements Localizable {
     @Override
     public void updateText(LanguageManager languageManager) {
         mainSettingsLabel.setText(languageManager.getText("settings.mainLabel"));
-        languageLabel.setText(languageManager.getText("settings.languageLabel"));
         russianButton.setText(languageManager.getText("settings.russian"));
         englishButton.setText(languageManager.getText("settings.english"));
-        backButton.setText(languageManager.getText("settings.back"));
     }
 
     @FXML
-    private void handleBackButton() throws IOException {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        stage.setScene(sceneLoader.mainMenu());
+    private void handleCloseButton() throws IOException {
+        Stage popup = (Stage) closeButton.getScene().getWindow();
+        popup.close();
     }
 
     @FXML

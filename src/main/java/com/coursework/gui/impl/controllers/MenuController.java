@@ -2,11 +2,14 @@ package com.coursework.gui.impl.controllers;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -55,8 +58,13 @@ public class MenuController implements Localizable {
 
     @FXML
     private void handleLanguagesButton() throws IOException {
-        Stage stage = (Stage) languagesButton.getScene().getWindow();
-        stage.setScene(sceneLoader.settings());
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.WINDOW_MODAL);
+        popupStage.initStyle(StageStyle.TRANSPARENT);
+        popupStage.initOwner(languagesButton.getScene().getWindow());
+        popupStage.setScene(sceneLoader.settings());
+        popupStage.setResizable(false);
+        popupStage.showAndWait();
     }
 
     @FXML

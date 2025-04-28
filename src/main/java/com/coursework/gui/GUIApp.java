@@ -1,6 +1,7 @@
 package com.coursework.gui;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
@@ -19,6 +20,11 @@ public class GUIApp extends Application {
         stage.setFullScreen(true);
         stage.setFullScreenExitHint("");
         stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+        stage.fullScreenProperty().addListener((obs, old, isFullscreen) -> {
+            if (!isFullscreen) {
+                Platform.runLater(() -> stage.setFullScreen(true));
+            }
+        });
         stage.setScene(scene);
         stage.show();
     }

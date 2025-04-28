@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -296,15 +297,15 @@ public class GameController extends Wordle implements Localizable {
         try {
             FXMLLoader loader = sceneLoader.win();
             Parent root = loader.load();
-            PopupController controller = loader.getController();
+            WLPopupController controller = loader.getController();
             controller.setAfterHideAction("menu", this::handleBackButton);
             controller.setAfterHideAction("restart", this::restartGame);
     
             Stage popupStage = new Stage();
             popupStage.initModality(Modality.WINDOW_MODAL);
-            popupStage.initStyle(StageStyle.UNDECORATED);
+            popupStage.initStyle(StageStyle.TRANSPARENT);
             popupStage.initOwner(backButton.getScene().getWindow());
-            popupStage.setScene(new Scene(root));
+            popupStage.setScene(new Scene(root, Color.TRANSPARENT));
             popupStage.setResizable(false);
             popupStage.showAndWait();
         } catch (IOException e) {
@@ -316,15 +317,15 @@ public class GameController extends Wordle implements Localizable {
         try {
             FXMLLoader loader = sceneLoader.lose();
             Parent root = loader.load();
-            PopupController controller = loader.getController();
+            WLPopupController controller = loader.getController();
             controller.setAfterHideAction("menu", this::handleBackButton);
             controller.setAfterHideAction("restart", this::restartGame);
     
             Stage popupStage = new Stage();
             popupStage.initModality(Modality.WINDOW_MODAL);
-            popupStage.initStyle(StageStyle.UNDECORATED);
+            popupStage.initStyle(StageStyle.TRANSPARENT);
             popupStage.initOwner(backButton.getScene().getWindow());
-            popupStage.setScene(new Scene(root));
+            popupStage.setScene(new Scene(root, Color.TRANSPARENT));
             popupStage.setResizable(false);
             popupStage.showAndWait();
         } catch (IOException e) {

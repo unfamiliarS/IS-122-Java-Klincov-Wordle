@@ -62,10 +62,8 @@ public class LanguageManager {
         
         // settings
         registerTextProvider("settings.mainLabel", l -> l.getSettings().getLabels().getMainLabel());
-        registerTextProvider("settings.languageLabel", l -> l.getSettings().getLabels().getLanguage());
         registerTextProvider("settings.russian", l -> l.getSettings().getButtons().getRussian());
         registerTextProvider("settings.english", l -> l.getSettings().getButtons().getEnglish());
-        registerTextProvider("settings.back", l -> l.getSettings().getButtons().getBack());
 
         // gameplay
         registerTextProvider("gameplay.alerts.invalidWord", l -> l.getGameplay().getAlerts().getInvalidWord());

@@ -37,3 +37,15 @@
     -fx-pref-width: 170px;
     -fx-pref-height: 75px;
 }
+
+.close-btn {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.close-btn:hover {
+    -fx-opacity: 0.8;
+    -fx-cursor: hand;
+}
