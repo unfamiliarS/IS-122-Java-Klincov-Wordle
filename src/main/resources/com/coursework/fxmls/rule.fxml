@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="mainPane" onKeyPressed="#handleCloseButtonKey" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="517.0" prefWidth="600.0" styleClass="congratulations-main" stylesheets="@static/popups_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coursework.gui.impl.controllers.RuleController">
+   <children>
+      <Label fx:id="titleLabel" layoutX="544.0" layoutY="64.0" styleClass="rule-title" text="how to play" />
+      <Button fx:id="closeButton" layoutX="1243.0" layoutY="34.0" onAction="#handleCloseButton" styleClass="close-btn">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@static/images/close.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="231.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="990.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox layoutX="94.0" layoutY="184.0" prefHeight="52.0" prefWidth="423.0" style="-fx-spacing: 16;">
+         <children>
+            <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" rotate="-91.4">
+               <image>
+                  <Image url="@static/images/star_blue.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="47.0" prefWidth="317.0" styleClass="answer-word-lbl" text="Guese the word in 6 tries" />
+         </children>
+      </HBox>
+      <HBox layoutX="111.0" layoutY="248.0" prefHeight="52.0" prefWidth="574.0" style="-fx-spacing: 16;">
+         <children>
+            <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" rotate="-27.8">
+               <image>
+                  <Image url="@static/images/star_white.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="47.0" prefWidth="501.0" styleClass="answer-word-lbl" text="Each guess must be a valid 5-letter word" />
+         </children>
+      </HBox>
+      <HBox layoutX="117.0" layoutY="311.0" prefHeight="52.0" prefWidth="966.0" style="-fx-spacing: 16;">
+         <children>
+            <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" rotate="-50.2">
+               <image>
+                  <Image url="@static/images/star_red.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="47.0" prefWidth="902.0" styleClass="answer-word-lbl" text="The color of the tiles will change to show how close youre was to the word" />
+         </children>
+      </HBox>
+      <Label fx:id="titleLabel1" layoutX="544.0" layoutY="403.0" styleClass="rule-title" text="example" />
+      <HBox alignment="CENTER" layoutX="431.0" layoutY="515.0" style="-fx-spacing: 9;" stylesheets="@static/style.css">
+         <children>
+            <Label alignment="CENTER" text="P">
+               <styleClass>
+                  <String fx:value="user-word-cells" />
+                  <String fx:value="user-word-green" />
+               </styleClass>
+            </Label>
+            <Label alignment="CENTER" text="L">
+               <styleClass>
+                  <String fx:value="user-word-cells" />
+                  <String fx:value="user-word-pink" />
+               </styleClass>
+            </Label>
+            <Label alignment="CENTER" text="A">
+               <styleClass>
+                  <String fx:value="user-word-cells" />
+                  <String fx:value="user-word-yellow" />
+               </styleClass>
+            </Label>
+            <Label alignment="CENTER" text="I">
+               <styleClass>
+                  <String fx:value="user-word-cells" />
+                  <String fx:value="user-word-pink" />
+               </styleClass>
+            </Label>
+            <Label alignment="CENTER" text="N">
+               <styleClass>
+                  <String fx:value="user-word-cells" />
+                  <String fx:value="user-word-pink" />
+               </styleClass>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutX="341.0" layoutY="605.0" prefHeight="200.0" prefWidth="636.0">
+         <children>
+            <Label prefHeight="47.0" prefWidth="489.0" styleClass="answer-word-lbl" text="P is in the word and in the correct spot" />
+            <Label prefHeight="47.0" prefWidth="489.0" styleClass="answer-word-lbl" text="A is in the word but in the wrong spot" />
+            <Label prefHeight="47.0" prefWidth="589.0" styleClass="answer-word-lbl" text="L, I and N is in not in the word" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

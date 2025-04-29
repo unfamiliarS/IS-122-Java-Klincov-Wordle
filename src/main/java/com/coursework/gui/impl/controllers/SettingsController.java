@@ -1,10 +1,13 @@
 package com.coursework.gui.impl.controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,7 +16,6 @@ import com.coursework.core.enums.Languages;
 import com.coursework.core.impl.Settings;
 import com.coursework.core.impl.languages.LanguageManager;
 import com.coursework.core.impl.languages.Localizable;
-import com.coursework.gui.impl.SceneLoader;
 
 public class SettingsController implements Localizable {
 
@@ -22,11 +24,9 @@ public class SettingsController implements Localizable {
     @FXML private Button englishButton;
     @FXML private Button closeButton;
     
-    private SceneLoader sceneLoader;
     private Settings settings;
 
-    public void init(LanguageManager languageManager, SceneLoader sceneLoader) {
-        this.sceneLoader = sceneLoader;
+    public void init(LanguageManager languageManager) {
         settings = Settings.getInstance();
         languageManager.registerLocalizable("settings", this);
         updateText(languageManager);
@@ -44,6 +44,13 @@ public class SettingsController implements Localizable {
     private void handleCloseButton() throws IOException {
         Stage popup = (Stage) closeButton.getScene().getWindow();
         popup.close();
+    }
+
+    @FXML
+    private void handleCloseButtonKey(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ESCAPE) {
+            ((Stage) closeButton.getScene().getWindow()).close();
+        }
     }
 
     @FXML

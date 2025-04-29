@@ -7,6 +7,7 @@ import com.coursework.core.UserInterfaceWL;
 import com.coursework.core.impl.languages.LanguageManager;
 import com.coursework.gui.impl.controllers.GameController;
 import com.coursework.gui.impl.controllers.MenuController;
+import com.coursework.gui.impl.controllers.RuleController;
 import com.coursework.gui.impl.controllers.SettingsController;
 
 import javafx.fxml.FXMLLoader;
@@ -38,7 +39,17 @@ public class SceneLoader implements UserInterface<Scene>, UserInterfaceWL<FXMLLo
         Parent root = loader.load();
         
         SettingsController controller = loader.getController();
-        controller.init(languageManager, this);
+        controller.init(languageManager);
+        
+        return new Scene(root, Color.TRANSPARENT);
+    }
+
+    public Scene rule() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/coursework/fxmls/rule.fxml"));
+        Parent root = loader.load();
+        
+        // RuleController controller = loader.getController();
+        // controller.init(languageManager);
         
         return new Scene(root, Color.TRANSPARENT);
     }
@@ -57,7 +68,6 @@ public class SceneLoader implements UserInterface<Scene>, UserInterfaceWL<FXMLLo
         return new FXMLLoader(getClass().getResource("/com/coursework/fxmls/win.fxml"));
     }
 
-    @Override
     public FXMLLoader lose() throws IOException {
         return new FXMLLoader(getClass().getResource("/com/coursework/fxmls/lose.fxml"));
     }

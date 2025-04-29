@@ -38,6 +38,7 @@
 .btn:focused, .btn:hover {
     -fx-scale-x: 1.05;
     -fx-scale-y: 1.05;
+    -fx-cursor: hand;
 }
 
 .play-btn {
@@ -106,6 +107,7 @@
     -fx-pref-width: 92px;
     -fx-pref-height: 92px;
     -fx-alignment: CENTER;
+    -fx-cursor: hand;
 }
 
 .keyboard-enter-del {
@@ -115,6 +117,7 @@
     -fx-font-size: 28px;
     -fx-pref-width: 137px;
     -fx-pref-height: 92px;
+    -fx-cursor: hand;
 }
 
 .keyboard-button-green, .keyboard-button-yellow, .keyboard-button-pink {

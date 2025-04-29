@@ -120,7 +120,7 @@
         </VBox.margin>
    </VBox>
     
-    <VBox fx:id="keyboardContainer" alignment="CENTER" prefHeight="462.0" prefWidth="2520.0" spacing="3">
+    <VBox fx:id="keyboardContainer" alignment="CENTER" prefHeight="462.0" prefWidth="2000.0" spacing="3">
         <VBox fx:id="engKeyboard" alignment="CENTER" managed="false" prefHeight="371.0" prefWidth="2520.0" spacing="3" style="-fx-spacing: 9;" visible="false">
             <HBox fx:id="firstRow" alignment="CENTER" prefHeight="95.0" prefWidth="2520.0" spacing="3" style="-fx-spacing: 9;">
                 <Button fx:id="KEY_Q" styleClass="keyboard" text="Q" />
