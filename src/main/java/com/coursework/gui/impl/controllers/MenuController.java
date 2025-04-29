@@ -40,9 +40,10 @@ public class MenuController implements Localizable {
 
     @Override
     public void updateText(LanguageManager languageManager) {
-        playButton.setText(languageManager.getText("menu.play"));
-        languagesButton.setText(languageManager.getText("menu.settings"));
-        exitButton.setText(languageManager.getText("menu.exit"));
+        playButton.setText(languageManager.getText("menu.playButton"));
+        rulesButton.setText(languageManager.getText("menu.rulesButton"));
+        languagesButton.setText(languageManager.getText("menu.settingsButton"));
+        exitButton.setText(languageManager.getText("menu.exitButton"));
     }
     
     @FXML

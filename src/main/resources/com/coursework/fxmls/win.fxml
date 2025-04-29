@@ -36,7 +36,7 @@
                         <String fx:value="congrats-btns" />
                      </styleClass>
                   </Button>
-                  <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#handleMainMenuButton" prefHeight="74.0" prefWidth="224.0" text="main menu">
+                  <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#handleMainMenuButton" prefHeight="70.0" prefWidth="245.0" text="main menu">
                      <styleClass>
                         <String fx:value="btn" />
                         <String fx:value="congrats-btns" />

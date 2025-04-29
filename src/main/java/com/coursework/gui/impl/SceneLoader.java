@@ -48,8 +48,8 @@ public class SceneLoader implements UserInterface<Scene>, UserInterfaceWL<FXMLLo
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/coursework/fxmls/rule.fxml"));
         Parent root = loader.load();
         
-        // RuleController controller = loader.getController();
-        // controller.init(languageManager);
+        RuleController controller = loader.getController();
+        controller.init(languageManager);
         
         return new Scene(root, Color.TRANSPARENT);
     }

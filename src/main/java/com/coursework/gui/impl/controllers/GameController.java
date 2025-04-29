@@ -82,7 +82,7 @@ public class GameController extends Wordle implements Localizable {
 
     @Override
     public void updateText(LanguageManager languageManager) {
-        backButton.setText(languageManager.getText("gameplay.menu"));
+        backButton.setText(languageManager.getText("gameplay.menuButton"));
     }
 
     private void updateKeyboard(Languages lang) {
@@ -298,6 +298,7 @@ public class GameController extends Wordle implements Localizable {
             FXMLLoader loader = sceneLoader.win();
             Parent root = loader.load();
             WLPopupController controller = loader.getController();
+            controller.init("win", languageManager, answer);
             controller.setAfterHideAction("menu", this::handleBackButton);
             controller.setAfterHideAction("restart", this::restartGame);
     
@@ -318,6 +319,7 @@ public class GameController extends Wordle implements Localizable {
             FXMLLoader loader = sceneLoader.lose();
             Parent root = loader.load();
             WLPopupController controller = loader.getController();
+            controller.init("lose", languageManager, answer);
             controller.setAfterHideAction("menu", this::handleBackButton);
             controller.setAfterHideAction("restart", this::restartGame);
     

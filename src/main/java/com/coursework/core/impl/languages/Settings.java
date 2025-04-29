@@ -4,11 +4,17 @@ import jakarta.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Settings {
-    @XmlElement
+    
+    @XmlElement(name = "labels")
     private Labels labels;
-    @XmlElement
+    @XmlElement(name = "buttons")
     private Buttons buttons;
     
-    public Labels getLabels() { return labels; }
-    public Buttons getButtons() { return buttons; }
+    public Labels getLabels() { 
+        return labels; 
+    }
+
+    public Buttons getButtons() { 
+        return buttons; 
+    }
 }

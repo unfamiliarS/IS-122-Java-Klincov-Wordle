@@ -2,74 +2,114 @@
 <languages>
     <language id="eng">
         <menu>
+            <labels>
+                <titleLabel>Wordle</titleLabel>
+                <subtitleLabel>guess the word</subtitleLabel>
+            </labels>
             <buttons>
-                <play>play</play>
-                <rules>how to play</rules>
-                <settings>languages</settings>
-                <exit>exit</exit>
+                <playButton>play</playButton>
+                <rulesButton>how to play</rulesButton>
+                <settingsButton>languages</settingsButton>
+                <exitButton>exit</exitButton>
             </buttons>
         </menu>
         <settings>
             <labels>
-                <mainLabel>Settings</mainLabel>
-                <language>Language</language>
+                <titleLabel>choose language</titleLabel>
             </labels>
             <buttons>
-                <russian>Russian</russian>
-                <english>English</english>
+                <russianButton>russian</russianButton>
+                <englishButton>english</englishButton>
             </buttons>
         </settings>
         <gameplay>
             <buttons>
-                <menu>Menu</menu>
+                <menuButton>to the menu</menuButton>
             </buttons>
-            <alerts>
-                <invalidWord>Word "%s" not found in dictionary</invalidWord>
-                <gameOver>
-                    <won>Congratulations! You guessed the word!</won>
-                    <lost>Game over. The word was: %s</lost>
-                </gameOver>
-                <title>
-                    <error>Error</error>
-                    <gameOver>Game Over</gameOver>
-                </title>
-            </alerts>
+            <popup>
+                <labels>
+                    <winTitleLabel>Congratulations!</winTitleLabel>
+                    <loseTitleLabel>You're lose:(</loseTitleLabel>
+                    <subtitleLabel>the word was:</subtitleLabel>
+                </labels>
+                <buttons>
+                    <restartButton>play again</restartButton>
+                    <menuButton>main menu</menuButton>
+                </buttons>
+            </popup>
         </gameplay>
+        <rule>
+            <labels>
+                <titleLabel>how to play</titleLabel>
+                <firstRule>Guese the word in 6 tries</firstRule>
+                <secondRule>Each guess must be a valid 5-letter word</secondRule>
+                <thirdRule>The color of the tiles will change to show how close your guess was to the word</thirdRule>
+                <exampleTitleLabel>example</exampleTitleLabel>
+                <exampleLetter1>P</exampleLetter1>
+                <exampleLetter2>L</exampleLetter2>
+                <exampleLetter3>A</exampleLetter3>
+                <exampleLetter4>I</exampleLetter4>
+                <exampleLetter5>N</exampleLetter5>
+                <firstExampleExplanation>'P' is in the word and in the correct spot</firstExampleExplanation>
+                <secondExampleExplanation>'A' is in the word but in the wrong spot</secondExampleExplanation>
+                <thirdExampleExplanation>'L', 'I' and 'N' is in not in the word</thirdExampleExplanation>
+            </labels>
+        </rule>
     </language>
-        <language id="rus">
+    <language id="rus">
         <menu>
+            <labels>
+                <titleLabel>Wordle</titleLabel>
+                <subtitleLabel>угадай слово</subtitleLabel>
+            </labels>
             <buttons>
-                <play>играть</play>
-                <rules>как играть</rules>
-                <settings>языки</settings>
-                <exit>выйти</exit>
+                <playButton>играть</playButton>
+                <rulesButton>как играть</rulesButton>
+                <settingsButton>языки</settingsButton>
+                <exitButton>выход</exitButton>
             </buttons>
         </menu>
         <settings>
             <labels>
-                <mainLabel>Настройки</mainLabel>
-                <language>Язык</language>
+                <titleLabel>выберите язык</titleLabel>
             </labels>
             <buttons>
-                <russian>Русский</russian>
-                <english>Английский</english>
+                <russianButton>русский</russianButton>
+                <englishButton>английский</englishButton>
             </buttons>
         </settings>
         <gameplay>
+            <popup>
+                <labels>
+                    <winTitleLabel>Поздравляем!</winTitleLabel>
+                    <loseTitleLabel>Вы проиграли:(</loseTitleLabel>
+                    <subtitleLabel>слово было:</subtitleLabel>
+                </labels>
+                <buttons>
+                    <restartButton>играть снова</restartButton>
+                    <menuButton>в меню</menuButton>
+                </buttons>
+            </popup>
             <buttons>
-                <menu>Меню</menu>
+                <menuButton>в меню</menuButton>
             </buttons>
-            <alerts>
-                <invalidWord>Слово "%s" не найдено в словаре</invalidWord>
-                <gameOver>
-                    <won>Поздравляем! Вы угадали слово!</won>
-                    <lost>Игра окончена. Загаданное слово: %s</lost>
-                </gameOver>
-                <title>
-                    <error>Ошибка</error>
-                    <gameOver>Игра окончена</gameOver>
-                </title>
-            </alerts>
         </gameplay>
+        <rule>
+            <labels>
+                <titleLabel>как играть</titleLabel>
+                <firstRule>Угадайте слово за 6 попыток</firstRule>
+                <secondRule>Каждая попытка должна быть корректным словом из 5 букв</secondRule>
+                <thirdRule>Цвет плиток будет меняться, показывая, насколько близко вы к загаданному слову</thirdRule>
+                <exampleTitleLabel>пример</exampleTitleLabel>
+                <exampleLetter1>К</exampleLetter1>
+                <exampleLetter2>О</exampleLetter2>
+                <exampleLetter3>Р</exampleLetter3>
+                <exampleLetter4>О</exampleLetter4>
+                <exampleLetter5>Б</exampleLetter5>
+                <firstExampleExplanation>'К' есть в слове и на нужном месте</firstExampleExplanation>
+                <secondExampleExplanation>'Р' есть в слове но не на этом месте</secondExampleExplanation>
+                <thirdExampleExplanation>'О' и 'Б' в слове отсутствуют</thirdExampleExplanation>
+            </labels>
+        </rule>
     </language>
 </languages>

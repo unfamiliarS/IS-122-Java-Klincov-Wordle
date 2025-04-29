@@ -35,9 +35,9 @@ public class SettingsController implements Localizable {
 
     @Override
     public void updateText(LanguageManager languageManager) {
-        mainSettingsLabel.setText(languageManager.getText("settings.mainLabel"));
-        russianButton.setText(languageManager.getText("settings.russian"));
-        englishButton.setText(languageManager.getText("settings.english"));
+        mainSettingsLabel.setText(languageManager.getText("settings.titleLabel"));
+        russianButton.setText(languageManager.getText("settings.russianButton"));
+        englishButton.setText(languageManager.getText("settings.englishButton"));
     }
 
     @FXML
@@ -56,7 +56,6 @@ public class SettingsController implements Localizable {
     @FXML
     private void handleLanguageButton(ActionEvent event) throws Exception {
         String buttonId = ((Node) event.getSource()).getId();
-        
         switch (buttonId) {
             case "russianButton" -> settings.setLanguage(Languages.RUS);
             case "englishButton" -> settings.setLanguage(Languages.ENG);

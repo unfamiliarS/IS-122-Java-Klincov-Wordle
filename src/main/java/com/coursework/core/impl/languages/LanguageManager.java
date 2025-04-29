@@ -55,23 +55,35 @@ public class LanguageManager {
 
     private void registerDefaultTextProviders() {
         // menu
-        registerTextProvider("menu.play", l -> l.getMenu().getButtons().getPlay());
-        registerTextProvider("menu.settings", l -> l.getMenu().getButtons().getSettings());
-        registerTextProvider("menu.exit", l -> l.getMenu().getButtons().getExit());
-        registerTextProvider("menu.rules", l -> l.getMenu().getButtons().getRules());
-        
+        registerTextProvider("menu.playButton", l -> l.getMenu().getButtons().getPlayButton());
+        registerTextProvider("menu.rulesButton", l -> l.getMenu().getButtons().getRulesButton());
+        registerTextProvider("menu.settingsButton", l -> l.getMenu().getButtons().getSettingsButton());
+        registerTextProvider("menu.exitButton", l -> l.getMenu().getButtons().getExitButton());
+        // rule
+        registerTextProvider("rule.titleLabel", l -> l.getRule().getLabels().getTitleLabel());
+        registerTextProvider("rule.firstRule", l -> l.getRule().getLabels().getFirstRule());
+        registerTextProvider("rule.secondRule", l -> l.getRule().getLabels().getSecondRule());
+        registerTextProvider("rule.thirdRule", l -> l.getRule().getLabels().getThirdRule());
+        registerTextProvider("rule.exampleTitleLabel", l -> l.getRule().getLabels().getExampleTitleLabel());
+        registerTextProvider("rule.exampleLetter1", l -> l.getRule().getLabels().getExampleLetter1());
+        registerTextProvider("rule.exampleLetter2", l -> l.getRule().getLabels().getExampleLetter2());
+        registerTextProvider("rule.exampleLetter3", l -> l.getRule().getLabels().getExampleLetter3());
+        registerTextProvider("rule.exampleLetter4", l -> l.getRule().getLabels().getExampleLetter4());
+        registerTextProvider("rule.exampleLetter5", l -> l.getRule().getLabels().getExampleLetter5());
+        registerTextProvider("rule.firstExampleExplanation", l -> l.getRule().getLabels().getFirstExampleExplanation());
+        registerTextProvider("rule.secondExampleExplanation", l -> l.getRule().getLabels().getSecondExampleExplanation());
+        registerTextProvider("rule.thirdExampleExplanation", l -> l.getRule().getLabels().getThirdExampleExplanation());
         // settings
-        registerTextProvider("settings.mainLabel", l -> l.getSettings().getLabels().getMainLabel());
-        registerTextProvider("settings.russian", l -> l.getSettings().getButtons().getRussian());
-        registerTextProvider("settings.english", l -> l.getSettings().getButtons().getEnglish());
-
+        registerTextProvider("settings.titleLabel", l -> l.getSettings().getLabels().getTitleLabel());
+        registerTextProvider("settings.russianButton", l -> l.getSettings().getButtons().getRussianButton());
+        registerTextProvider("settings.englishButton", l -> l.getSettings().getButtons().getEnglishButton());
         // gameplay
-        registerTextProvider("gameplay.alerts.invalidWord", l -> l.getGameplay().getAlerts().getInvalidWord());
-        registerTextProvider("gameplay.alerts.gameOver.won", l -> l.getGameplay().getAlerts().getGameOver().getWon());
-        registerTextProvider("gameplay.alerts.gameOver.lost", l -> l.getGameplay().getAlerts().getGameOver().getLost());
-        registerTextProvider("gameplay.alerts.title.error", l -> l.getGameplay().getAlerts().getTitle().getError());
-        registerTextProvider("gameplay.alerts.title.gameOver", l -> l.getGameplay().getAlerts().getTitle().getGameOver());
-        registerTextProvider("gameplay.menu", l -> l.getGameplay().getButtons().getMenu());
+        registerTextProvider("gameplay.popup.winTitleLabel", l -> l.getGameplay().getPopup().getLabels().getWinTitleLabel());
+        registerTextProvider("gameplay.popup.loseTitleLabel", l -> l.getGameplay().getPopup().getLabels().getLoseTitleLabel());
+        registerTextProvider("gameplay.popup.subtitleLabel", l -> l.getGameplay().getPopup().getLabels().getSubtitleLabel());
+        registerTextProvider("gameplay.popup.restartButton", l -> l.getGameplay().getPopup().getButtons().getRestartButton());
+        registerTextProvider("gameplay.popup.menuButton", l -> l.getGameplay().getPopup().getButtons().getMenuButton());
+        registerTextProvider("gameplay.menuButton", l -> l.getGameplay().getButtons().getMenuButton());
     }
 
     public void registerTextProvider(String textId, Function<Language, String> provider) {
