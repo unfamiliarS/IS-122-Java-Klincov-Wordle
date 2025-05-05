@@ -1,10 +1,10 @@
 package com.coursework.gui;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -16,15 +16,11 @@ public class GUIApp extends Application {
     public void start(Stage stage) throws IOException {
         SceneLoader sceneLoader = new SceneLoader();
         Scene scene = sceneLoader.mainMenu();
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setFullScreen(true);
         stage.setFullScreenExitHint("");
         stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-        stage.fullScreenProperty().addListener((obs, old, isFullscreen) -> {
-            if (!isFullscreen) {
-                Platform.runLater(() -> stage.setFullScreen(true));
-            }
-        });
         stage.setScene(scene);
         stage.show();
     }

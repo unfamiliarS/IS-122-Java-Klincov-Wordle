@@ -74,8 +74,8 @@
     -fx-border-radius: 9px;
     -fx-background-radius: 9px;
     -fx-background-color: rgb(255, 255, 255);
-    -fx-pref-width: 84px;
-    -fx-pref-height: 90px;
+    -fx-pref-width: 74px;
+    -fx-pref-height: 80px;
 }
 
 .user-word-green {
@@ -104,8 +104,8 @@
     -fx-border-radius: 9px;
     -fx-background-radius: 9px;
     -fx-background-color: rgb(255, 255, 255);
-    -fx-pref-width: 92px;
-    -fx-pref-height: 92px;
+    -fx-pref-width: 82px;
+    -fx-pref-height: 82px;
     -fx-alignment: CENTER;
     -fx-cursor: hand;
 }

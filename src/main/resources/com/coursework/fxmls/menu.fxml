@@ -7,64 +7,69 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleESCPress" prefHeight="1440.0" prefWidth="2560.0" stylesheets="@static/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coursework.gui.impl.controllers.MenuController">
+<AnchorPane fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleESCPress" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@static/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coursework.gui.impl.controllers.MenuController">
    <children>
-      <Button fx:id="playButton" layoutX="1203.0" layoutY="629.0" mnemonicParsing="false" onAction="#handlePlayButton" prefHeight="74.0" prefWidth="224.0" text="play">
+      <Button fx:id="playButton" layoutX="864.0" layoutY="460.0" mnemonicParsing="false" onAction="#handlePlayButton" prefHeight="60.0" prefWidth="200.0" text="play">
          <styleClass>
             <String fx:value="btn" />
             <String fx:value="play-btn" />
          </styleClass>
       </Button>
-      <Button fx:id="rulesButton" layoutX="1149.0" layoutY="726.0" mnemonicParsing="false" onAction="#handleRulesButton" text="how to play">
+      <Button fx:id="rulesButton" layoutX="811.0" layoutY="538.0" mnemonicParsing="false" onAction="#handleRulesButton" prefHeight="60.0" prefWidth="200.0" text="how to play">
          <styleClass>
             <String fx:value="btn" />
             <String fx:value="howToPlay-btn" /> 
          </styleClass>
       </Button>
-      <Button fx:id="languagesButton" layoutX="1166.0" layoutY="827.0" mnemonicParsing="false" onAction="#handleLanguagesButton" text="languages">
+      <Button fx:id="languagesButton" layoutX="825.0" layoutY="618.0" mnemonicParsing="false" onAction="#handleLanguagesButton" prefHeight="60.0" prefWidth="200.0" text="languages">
          <styleClass>
             <String fx:value="btn" />
             <String fx:value="languages-btn" />
          </styleClass>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="947.0" layoutY="217.0" prefHeight="312.0" prefWidth="713.0" styleClass="title-lbl" text="Wordle" />
-      <Label alignment="CENTER" layoutX="1157.0" layoutY="492.0" prefHeight="64.0" prefWidth="289.0" styleClass="subtitle-lbl" text="guese the word" />
-      <ImageView fitHeight="84.0" fitWidth="83.0" layoutX="1613.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="608.0" layoutY="85.0" prefHeight="200.0" prefWidth="700.0" styleClass="title-lbl" text="Wordle" />
+      <Label alignment="CENTER" layoutX="810.0" layoutY="350.0" prefHeight="50.0" prefWidth="300.0" styleClass="subtitle-lbl" text="guess the word" />
+      
+      <!-- Декоративные элементы (правые) -->
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="1294.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@static/images/strawberry.png" />
         </image>
       </ImageView>
-      <ImageView fitHeight="52.0" fitWidth="32.0" layoutX="1644.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true" rotate="26.6">
+      <ImageView fitHeight="40.0" fitWidth="25.0" layoutX="1314.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true" rotate="26.6">
          <image>
             <Image url="@static/images/strawberry.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="72.0" fitWidth="64.0" layoutX="1763.0" layoutY="711.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" rotate="55.0">
+      <ImageView fitHeight="50.0" fitWidth="45.0" layoutX="1480.0" layoutY="506.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" rotate="55.0">
          <image>
             <Image url="@static/images/strawberry.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="52.0" fitWidth="54.0" layoutX="1597.0" layoutY="981.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" rotate="31.0">
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="1378.0" layoutY="680.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" rotate="31.0">
          <image>
             <Image url="@static/images/strawberry.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="84.0" fitWidth="83.0" layoutX="777.0" layoutY="705.0" pickOnBounds="true" preserveRatio="true" rotate="-66.0">
+      
+      <!-- Декоративные элементы (левые) -->
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="464.0" layoutY="524.0" pickOnBounds="true" preserveRatio="true" rotate="-66.0">
          <image>
             <Image url="@static/images/strawberry.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="52.0" fitWidth="54.0" layoutX="779.0" layoutY="788.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="464.0" layoutY="594.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@static/images/strawberry.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="63.0" fitWidth="54.0" layoutX="937.0" layoutY="443.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="45.0" fitWidth="40.0" layoutX="600.0" layoutY="300.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@static/images/strawberry.png" />
          </image>
       </ImageView>
-      <Button fx:id="exitButton" layoutX="1210.0" layoutY="923.0" mnemonicParsing="false" onAction="#handleExitButton" text="exit">
+      
+      <Button fx:id="exitButton" layoutX="873.0" layoutY="696.0" mnemonicParsing="false" onAction="#handleExitButton" prefHeight="60.0" prefWidth="200.0" text="exit">
          <styleClass>
             <String fx:value="btn" />
             <String fx:value="exit-btn" />

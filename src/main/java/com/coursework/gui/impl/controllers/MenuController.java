@@ -2,8 +2,10 @@ package com.coursework.gui.impl.controllers;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -49,7 +51,15 @@ public class MenuController implements Localizable {
     @FXML
     private void handlePlayButton() throws IOException {
         Stage stage = (Stage) playButton.getScene().getWindow();
-        stage.setScene(sceneLoader.gameplay());
+        Scene gameScene = sceneLoader.gameplay();
+        Stage gameStage = new Stage();
+        gameStage.initStyle(StageStyle.UNDECORATED);
+        gameStage.setScene(gameScene);
+        gameStage.setFullScreen(true);
+        gameStage.setFullScreenExitHint("");
+        gameStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+        gameStage.show();
+        stage.close();
     }
 
     @FXML

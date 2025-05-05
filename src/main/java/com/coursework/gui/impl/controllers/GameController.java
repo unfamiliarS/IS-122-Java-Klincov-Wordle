@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -371,14 +372,22 @@ public class GameController extends Wordle implements Localizable {
             e.printStackTrace();
         }
     }
-
     @FXML
     private void handleBackButton() {
-        Stage stage = (Stage) backButton.getScene().getWindow();
         try {
-            stage.setScene(sceneLoader.mainMenu());
+            Stage stage = (Stage) backButton.getScene().getWindow();
+            Scene menuScene = sceneLoader.mainMenu();
+            Stage gameStage = new Stage();
+            gameStage.initStyle(StageStyle.UNDECORATED);
+            gameStage.setScene(menuScene);
+            gameStage.setFullScreen(true);
+            gameStage.setFullScreenExitHint("");
+            gameStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+            gameStage.show();
+            stage.close();
         } catch (IOException e) {
             e.printStackTrace();
+            Platform.exit();
         }
     }
 }

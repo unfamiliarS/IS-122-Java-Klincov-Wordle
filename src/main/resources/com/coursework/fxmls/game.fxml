@@ -8,53 +8,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="800.0" minWidth="500.0" prefHeight="1440.0" prefWidth="2560.0" spacing="10" style="-fx-background-color: white;" stylesheets="@static/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coursework.gui.impl.controllers.GameController">
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="800.0" minWidth="500.0" prefHeight="1080.0" prefWidth="1920.0" spacing="10" style="-fx-background-color: white;" stylesheets="@static/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coursework.gui.impl.controllers.GameController">
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-    <VBox fx:id="letterLabelsRows" prefHeight="612.0" prefWidth="2520.0" spacing="2" style="-fx-spacing: 9;">
-        <HBox alignment="CENTER" style="-fx-spacing: 9;">
+    <VBox fx:id="letterLabelsRows" prefHeight="612.0" prefWidth="2520.0" spacing="2" style="-fx-spacing: 7;">
+        <HBox alignment="CENTER" style="-fx-spacing: 7;">
             <Label alignment="CENTER" styleClass="user-word-cells" />
             <Label alignment="CENTER" styleClass="user-word-cells" />
             <Label alignment="CENTER" styleClass="user-word-cells" />
             <Label alignment="CENTER" styleClass="user-word-cells" />
             <Label alignment="CENTER" styleClass="user-word-cells" />
         </HBox>
-        <HBox alignment="CENTER" style="-fx-spacing: 9;">
-            <Label alignment="CENTER">
-            <styleClass>
-               <String fx:value="user-word-cells" />
-               <String fx:value="user-word-cells-yel" />
-            </styleClass></Label>
-            <Label alignment="CENTER">
-            <styleClass>
-               <String fx:value="user-word-cells" />
-               <String fx:value="user-word-cells-yel" />
-            </styleClass></Label>
-            <Label alignment="CENTER">
-            <styleClass>
-               <String fx:value="user-word-cells" />
-               <String fx:value="user-word-cells-yel" />
-            </styleClass></Label>
-            <Label alignment="CENTER">
-            <styleClass>
-               <String fx:value="user-word-cells" />
-               <String fx:value="user-word-cells-yel" />
-            </styleClass></Label>
-            <Label alignment="CENTER">
-            <styleClass>
-               <String fx:value="user-word-cells" />
-               <String fx:value="user-word-cells-yel" />
-            </styleClass></Label>
-        </HBox>
-        <HBox alignment="CENTER" style="-fx-spacing: 9;">
-            <Label alignment="CENTER" styleClass="user-word-cells" />
-            <Label alignment="CENTER" styleClass="user-word-cells" />
-            <Label alignment="CENTER" styleClass="user-word-cells" />
-            <Label alignment="CENTER" styleClass="user-word-cells" />
-            <Label alignment="CENTER" styleClass="user-word-cells" />
-        </HBox>
-        <HBox alignment="CENTER" style="-fx-spacing: 9;">
+        <HBox alignment="CENTER" style="-fx-spacing: 7;">
             <Label alignment="CENTER">
             <styleClass>
                <String fx:value="user-word-cells" />
@@ -81,14 +47,48 @@
                <String fx:value="user-word-cells-yel" />
             </styleClass></Label>
         </HBox>
-        <HBox alignment="CENTER" style="-fx-spacing: 9;">
+        <HBox alignment="CENTER" style="-fx-spacing: 7;">
             <Label alignment="CENTER" styleClass="user-word-cells" />
             <Label alignment="CENTER" styleClass="user-word-cells" />
             <Label alignment="CENTER" styleClass="user-word-cells" />
             <Label alignment="CENTER" styleClass="user-word-cells" />
             <Label alignment="CENTER" styleClass="user-word-cells" />
         </HBox>
-        <HBox alignment="CENTER" style="-fx-spacing: 9;">
+        <HBox alignment="CENTER" style="-fx-spacing: 7;">
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+            <Label alignment="CENTER">
+            <styleClass>
+               <String fx:value="user-word-cells" />
+               <String fx:value="user-word-cells-yel" />
+            </styleClass></Label>
+        </HBox>
+        <HBox alignment="CENTER" style="-fx-spacing: 7;">
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+            <Label alignment="CENTER" styleClass="user-word-cells" />
+        </HBox>
+        <HBox alignment="CENTER" style="-fx-spacing: 7;">
             <Label alignment="CENTER">
             <styleClass>
                <String fx:value="user-word-cells" />
@@ -116,7 +116,7 @@
             </styleClass></Label>
         </HBox>
         <VBox.margin>
-            <Insets bottom="30.0" top="80.0" />
+            <Insets bottom="20.0" top="40.0" />
         </VBox.margin>
    </VBox>
     
