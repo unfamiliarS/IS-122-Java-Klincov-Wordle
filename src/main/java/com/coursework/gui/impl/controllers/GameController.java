@@ -336,7 +336,7 @@ public class GameController extends Wordle implements Localizable {
         }
     }
 
-    private void restartGame() {
+    public void restartGame() {
         currentRow = 0;
         currentLetterIndex = 0;
         currentAttempt = 0;
