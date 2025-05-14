@@ -26,6 +26,13 @@ class DictionaryTest {
             "apple\nmelon\ngrape\npeach\nlemon\nmango".getBytes());
         
         dictionary = new Dictionary(TEST_DICT_PATH);
+        // Put the thread to sleep for one second, because otherwise the
+        // test dictionary won't have time to be created    
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
