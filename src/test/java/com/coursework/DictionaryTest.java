@@ -1,5 +1,6 @@
 package com.coursework;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,10 +16,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class DictionaryTest {
 
     private static final String TEST_DICT_PATH = "/com/coursework/test_dict.txt";
-    private Dictionary dictionary;
+    private static Dictionary dictionary;
 
-    @BeforeEach
-    void setUp() throws IOException {
+    @BeforeAll
+    static void setUp() throws IOException {
         Path testDictPath = Paths.get("src", "test", "resources", TEST_DICT_PATH.substring(1));
         Files.createDirectories(testDictPath.getParent());
         
