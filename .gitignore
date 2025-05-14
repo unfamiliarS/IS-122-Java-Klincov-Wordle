@@ -1,3 +1,5 @@
 .vscode/
 target/
 bin/
+src/test/resources/
+dependency-reduced-pom.xml
