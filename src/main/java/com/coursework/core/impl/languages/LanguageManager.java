@@ -28,7 +28,6 @@ public class LanguageManager {
             localizableComponents.values().forEach(component -> component.updateText(this)));
         loadTexts();
         registerDefaultTextProviders();
-        System.out.println("Create LanguageManager");
     }
 
     public static LanguageManager getInstance() {

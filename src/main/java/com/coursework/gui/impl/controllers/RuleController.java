@@ -32,7 +32,6 @@ public class RuleController implements Localizable {
     public void init(LanguageManager languageManager) {
         languageManager.registerLocalizable("rules", this);
         updateText(languageManager);
-        System.out.println("Init RuleController");
     }
 
     public void updateText(LanguageManager languageManager) {

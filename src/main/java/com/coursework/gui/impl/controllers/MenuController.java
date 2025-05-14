@@ -37,7 +37,6 @@ public class MenuController implements Localizable {
     public void init(LanguageManager languageManager, SceneLoader sceneLoader) {
         this.sceneLoader = sceneLoader;
         languageManager.registerLocalizable("menu", this);
-        System.out.println("Init MenuController");
     }
 
     @Override

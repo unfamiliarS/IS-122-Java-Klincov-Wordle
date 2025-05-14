@@ -64,8 +64,6 @@ public class Settings {
         setWordDictionary(LanguageManager.getAllWordsDictionary(getLanguage()));
         
         languageListeners = new ArrayList<>();
-        System.out.println("The Settings creation is complete");
-
     }
 
     public static Settings getInstance() {

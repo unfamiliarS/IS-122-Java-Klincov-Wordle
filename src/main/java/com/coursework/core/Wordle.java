@@ -18,7 +18,7 @@
         public Wordle() throws IOException {
             settings = Settings.getInstance();
             answer = settings.getAnswerDictionary().getRandomWord().toLowerCase();
-            System.out.println("Answer word: " + answer);
+            // System.out.println("Answer word: " + answer);
             allWordsDictionary = settings.getWordDictionary();
             attempts = settings.getAttempts();
             wordLength = settings.getWordLength();

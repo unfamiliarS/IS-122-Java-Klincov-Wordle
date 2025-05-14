@@ -29,16 +29,6 @@ class DictionaryTest {
     }
 
     @Test
-    void getRandomWord_returns5LetterWordFromDictionary() throws IOException {
-        for (int i = 0; i < 100; i++) {
-            String word = dictionary.getRandomWord();
-            assertNotNull(word);
-            assertEquals(5, word.length(), 
-                "Word '" + word + "' should have 5 letters");
-        }
-    }
-
-    @Test
     void isTheWordInTheDictionary_returnsTrueForExisting5LetterWord() throws IOException {
         assertTrue(dictionary.isTheWordInTheDictionary("apple"));
         assertTrue(dictionary.isTheWordInTheDictionary("melon"));

@@ -1,6 +1,5 @@
 package com.coursework.gui.impl.controllers;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -30,7 +29,6 @@ public class SettingsController implements Localizable {
         settings = Settings.getInstance();
         languageManager.registerLocalizable("settings", this);
         updateText(languageManager);
-        System.out.println("Init SettingsController");
     }
 
     @Override

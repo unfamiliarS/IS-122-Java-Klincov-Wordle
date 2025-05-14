@@ -59,7 +59,6 @@ public class GameController extends Wordle implements Localizable {
         // init Keyboard
         settings.addLanguageChangeListener(newLanguage -> updateKeyboard(newLanguage));
         updateKeyboard(settings.getLanguage());
-        System.out.println("Init Keyboard");
         
         letterRows = new ArrayList<>();
         for (int i = 0; i < attempts; i++)
@@ -71,7 +70,6 @@ public class GameController extends Wordle implements Localizable {
                 setupKeyboard();
             }
         });
-        System.out.println("Init GameController");
     }
 
     public void init(LanguageManager languageManager, SceneLoader sceneLoader) {
@@ -367,7 +365,7 @@ public class GameController extends Wordle implements Localizable {
     
         try {
             answer = settings.getAnswerDictionary().getRandomWord().toLowerCase();
-            System.out.println("New answer word: " + answer);
+            // System.out.println("New answer word: " + answer);
         } catch (IOException e) {
             e.printStackTrace();
         }

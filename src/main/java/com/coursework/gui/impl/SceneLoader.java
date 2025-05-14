@@ -21,7 +21,6 @@ public class SceneLoader implements UserInterface<Scene>, UserInterfaceWL<FXMLLo
 
     public SceneLoader() {
         this.languageManager = LanguageManager.getInstance();
-        System.out.println("Create SceneLoader");
     }
 
     public Scene mainMenu() throws IOException {
