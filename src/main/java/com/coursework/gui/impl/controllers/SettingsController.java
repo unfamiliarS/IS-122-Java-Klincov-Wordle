@@ -28,7 +28,6 @@ public class SettingsController implements Localizable {
     public void init(LanguageManager languageManager) {
         settings = Settings.getInstance();
         languageManager.registerLocalizable("settings", this);
-        updateText(languageManager);
     }
 
     @Override

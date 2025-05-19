@@ -42,7 +42,6 @@ public class WLPopupController implements Localizable {
         this.WorL = WorL;
         this.answer = answer;
         languageManager.registerLocalizable("WLpopup", this);
-        updateText(languageManager);
     }
 
     public void updateText(LanguageManager languageManager) {

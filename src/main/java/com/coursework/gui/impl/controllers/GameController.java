@@ -76,7 +76,6 @@ public class GameController extends Wordle implements Localizable {
         this.languageManager = languageManager;    
         this.sceneLoader = sceneLoader;
         languageManager.registerLocalizable("gameplay", this);
-        updateText(languageManager);
     }
 
     @Override
